@@ -1,0 +1,117 @@
+.slides{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 70px;
+}
+
+.slides .container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.slides .container .top{
+    font-size: 30px;
+    color: var(--bg-3);
+    font-weight: 600;
+    text-align: center;
+}
+
+.slides .container .bottom{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+}
+
+.slides .container .bottom .slide{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.slides .container .bottom .slide .card{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slides .container .bottom .slide .card .cardContent{
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.slides .container .bottom .slide .card .cardContent .up{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.slides .container .bottom .slide .card .cardContent .down{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+}
+
+.slides .container .bottom .slide .card .cardContent .down img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slides .container .btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+
+.slides .container .btn span{
+    background: var(--bg-3);
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 600;
+    color: var(--color-2);
+    transition: 0.3s ease;
+}
+
+.slides .container .btn span:hover{
+    transform: scale(1.04);
+}
+
+@media screen and (max-width: 450px) {
+    .slides .container .bottom .slide .card .cardContent .up{
+        width: 90%;
+        font-size: 17px;
+    }
+
+    .slides .container .bottom .slide .card .cardContent .down{
+        width: 95%;
+    }
+}

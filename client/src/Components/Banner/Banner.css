@@ -1,0 +1,114 @@
+.banner{
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background: url(../../assets/b.jpg);
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.banner .overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--bg-2);
+    opacity: 0.685;
+    z-index: 1;
+}
+
+.banner .content{
+    z-index: 20;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+    display: flex;
+    position: relative;
+}
+
+.banner .content .left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.banner .content .left p{
+    color: var(--color-3);
+    font-size: 22px;
+}
+
+.banner .content .left h2{
+    font-size: 50px;
+}
+
+.banner .content .left span{
+    font-size: 18px;
+}
+
+.banner .content .right{
+    flex: 1;
+    display: flex;
+}
+
+.banner .content .right .btn{
+    margin-left: 400px;
+}
+
+.banner .content .right .btn span{
+    background: var(--color-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 20px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    color: rgb(6, 6, 6);
+}
+
+.banner .content .right .btn span:hover{
+    background: white;
+    color: var(--bg-2);
+}
+
+@media screen and (max-width: 768px) {
+    .banner .content{
+        flex-direction: column;
+    }
+
+    .banner .content .right .btn{
+        margin-top: 60px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .banner .content{
+        padding: 10px;
+    }
+
+    .banner .content .left{
+        margin-top: 30px;
+    }
+
+    .banner .content .left p{
+        font-size: 20px;
+    }
+
+    .banner .content .left h2{
+        margin-top: 20px;
+        font-size: 35px;
+    }
+
+    .banner .content .left span{
+        margin-top: 25px;
+    }
+}

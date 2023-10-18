@@ -1,0 +1,17 @@
+.register{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: purple;
+    padding: 30px;
+}
+
+.register .container{
+    max-width: 850px;
+    width: 100%;
+    background: var(--color-2);
+    padding: 40px 30px;
+}
+
+.register .container form

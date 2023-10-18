@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@300;400;500;700;900&display=swap');
+
+:root{
+  --bg-1: yellow;
+  --bg-2: blue;
+  --bg-3: rgb(255, 98, 0);
+  --bg-4: rgb(196, 197, 197);
+  --bg-5: rgba(255, 98, 0, 0.095);
+  --color-1: #000;
+  --color-2: #fff;
+  --color-3: yellow;
+
+  --opa-1: rgba(255, 255, 0, 0.596);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background: var(--bg-5);
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.padding{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.title{
+  text-align: center;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .padding{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .padding{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
