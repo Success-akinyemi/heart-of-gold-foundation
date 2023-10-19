@@ -4,7 +4,7 @@ const menuData = [
     {title: 'Campaigns', link: '/campaign'},
     {title: 'Gallery', link: '/gallery'},
     {title: 'Events/News', link: '/events'},
-    {title: 'Join Us', link: '/register'},
+    {title: 'Join Us', link: '/signup'},
     {title: 'Contact Us', link: '/contact'},
 ]
 
