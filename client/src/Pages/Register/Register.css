@@ -8,12 +8,231 @@
 }
 
 .register .container{
+    position: relative;
     max-width: 850px;
     width: 100%;
     background: var(--color-2);
     padding: 40px 30px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    perspective: 2700px;
+}
+
+.register .container .cover{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 50%;
+    z-index: 98;
+    transition: all 1s ease;
+    transform-origin: left;
+    transform-style: preserve-3d;
+}
+
+.register .container .cover::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: purple;
+    opacity: 0.5;
+    z-index: 100;
+}
+
+.register .container .cover::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: purple;
+    opacity: 0.5;
+    z-index: 100;
+    transform: rotateY('180deg');
+}
+
+.register .container .cover img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 12;
+    backface-visibility: hidden;
+}
+
+.register .container .cover .back .backImg{
+    transform: rotateY('180deg');
+}
+
+.register .container .cover .text{
+    position: absolute;
+    z-index: 11;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register .container .cover .text .text-1,
+.register .container .cover .text .text-2{
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--color-2);
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+.register .container .cover .back .text .text-1,
+.register .container .cover .back .text .text-2{
+    transform: rotateY(180deg);
+}
+
+.register .container .cover .text .text-2{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.register .container #flip:checked ~ .cover{
+    transform: rotateY('-180deg');
 }
 
 .register .container form{
-    
+    height: 100%;
+    width: 100%;
+    background: var(--color-2);
+}
+
+.register .container form .form-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .form-content .login-form,
+form .form-content .signup-form{
+    width: calc(100% / 2 -25px);
+}
+
+form .form-content .title{
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-1);
+}
+
+form .form-content .title::before{
+    left: 0;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 24px;
+    background: purple;
+}
+
+form .signup-form .form-content .title::before{
+    width: 20px;
+}
+
+form .form-content .input-boxes{
+    margin-top: 30px;
+}
+
+form .form-content .input-box{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+
+form .form-content .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 17px;
+    font-weight: 500;
+    border-bottom: 2px solid gray;
+    transition: all 0.3s ease;
+}
+
+form .form-content .input-box input:focus,
+form .form-content .input-box input:valid{
+    border-color: purple;
+}
+
+form .form-content .input-box .icon{
+    position: absolute;
+    color: purple;
+    font-size: 20px;
+}
+
+form .form-content .text{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-1);
+    cursor: pointer;
+}
+
+form .form-content .input-box .submit{
+    color: var(--color-2);
+    margin-top: 40px;
+}
+
+form .form-content .input-box .submit input{
+    background: purple;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition:  all 0.4 ease;
+}
+
+form .form-content .input-box .submit input:hover{
+    background: rgba(128, 0, 128, 0.781);
+}
+
+form .form-content label{
+    color: purple;
+    cursor: pointer;
+}
+
+form .form-content label:hover{
+    text-decoration: underline;
+}
+
+form .form-content .sign-up-text,
+form .form-content .login-text{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.container #flip{
+    display: none;
+}
+
+@media screen and(max-width: 730px) {
+    .register .container .cover{
+        display: none;
+    }
+
+    form .form-content .login-form,
+    form .form-content .signup-form{
+        width: 100%;
+    }
+
+    form .form-content .signup-form{
+        display: none;
+    }
+
+    .register .container #flip:checked ~ form .form-content .signup-form{
+        display: block;
+    }
+
+    .register .container #flip:checked ~ form .form-content .login-form{
+        display: none;
+    }
 }
