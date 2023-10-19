@@ -1,19 +1,20 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "heart-of-gold-foundation",
+  "description": "Heart of Gold Foundation",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "widow",
-    "empowerment"
+    "widows-empowerment",
+    "charity"
   ],
-  "author": "success-akinyemi",
+  "author": "success akinyemi",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mailgen": "^2.0.27",
