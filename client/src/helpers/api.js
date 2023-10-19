@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-axios.defaults.baseURL = 'http://localhost:9000'
+axios.defaults.baseURL = 'http://localhost:8080'
 
 
 /**Get user from token */
@@ -22,10 +22,10 @@ export async function getUser(){
 }
 
 /**REGISTER USER */
-export async function registerUser({ username, email, password, phoneNumber }){
+export async function registerUser({ username, email, password }){
     try {
         //console.log('before send',username, email, password, phoneNumber)
-        const response  = await axios.post('/api/register', { username, email, password, phoneNumber })
+        const response  = await axios.post('/api/register', { username, email, password })
         //console.log('resPonse', response)
         const { data } =response
         localStorage.setItem('authToken', data.token)

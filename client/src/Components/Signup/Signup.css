@@ -1,19 +1,27 @@
- 
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
   .signup-box {
     width: 360px;
-    height: 620px;
-    margin: auto;
-    background-color: white;
+    height: auto;
+
+    background-color: var(--color-2);
     border-radius: 3px;
   }
   
   .signup-box h1 {
     text-align: center;
     padding-top: 15px;
+    font-size: 20px;
   }
   
   .signup-box h4 {
     text-align: center;
+    font-size: 15px;
   }
   
   .signup-box form {
@@ -40,7 +48,7 @@
     height: 35px;
     margin-top: 20px;
     border: none;
-    background-color: #49c1a2;
+    background-color: var(--color-1);
     color: white;
     font-size: 18px;
   }
@@ -53,8 +61,16 @@
     text-align: center;
     color: white;
     font-size: 15px;
-    margin-top: -10px;
+    margin-top: 10px;
   }
   .signup-box .para-2 a {
     color: #49c1a2;
   }
+
+  .error{
+    text-align: center;
+    color: red;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+}
