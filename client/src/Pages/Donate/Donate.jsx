@@ -72,7 +72,9 @@ function Donate(){
                         </div>
 
                         <div className="submit input-feild">
-                            <input type="submit" value={ isLoadingData ? 'Please wait' : 'Donate' } disabled={isLoadingData} />
+                            <button type="submit" disabled={isLoadingData}>
+                            {isLoadingData ? 'Please wait' : 'Donate'}
+                            </button>
                         </div>
 
                     </div>

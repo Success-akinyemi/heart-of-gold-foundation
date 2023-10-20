@@ -7,7 +7,7 @@ function About(){
         <div className="about">
             <Navbar />
             <div className="padding container">
-                <h2>Who Are Are?</h2>
+                <h2>Who Are We?</h2>
                 <p>
                     
                 </p>
