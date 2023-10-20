@@ -1,17 +1,20 @@
 import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
-import './Gallery.css'
+import './About.css'
 
-function Gallery(){
-    return(
-        <div className="gallery">
+function About(){
+    return (
+        <div className="about">
             <Navbar />
             <div className="padding container">
-                hello
+                <h2>Who Are Are?</h2>
+                <p>
+                    
+                </p>
             </div>
             <Footer />
         </div>
     )
 }
 
-export default Gallery
+export default About

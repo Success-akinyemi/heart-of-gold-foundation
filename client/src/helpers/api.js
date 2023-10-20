@@ -94,3 +94,13 @@ export async function resetPassword({ resetToken, password }){
         return errorMsg
     }
 }
+
+/**DONATE  */
+export async function donate({username, email, amount}){
+    try {
+        const response = await axios.post('/api/donation', { username, email, amount})
+        
+    } catch (error) {
+        
+    }
+}

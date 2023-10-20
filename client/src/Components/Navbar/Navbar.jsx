@@ -33,7 +33,7 @@ function Navbar() {
             </div>
 
             <div className="donate">
-                <span>Donate Now</span>
+                <span><Link to='/donate' className='link'>Donate Now</Link></span>
             </div>
         </div>
             <div className='menuBtn' onClick={toggle}>
