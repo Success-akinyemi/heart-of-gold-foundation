@@ -2,7 +2,8 @@ import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
 import { getUser } from '../helpers/api'
 
-axios.defaults.baseURL = 'http://localhost:8080'
+//axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = 'https://heart-of-gold-foundation.onrender.com'
 
 
 /**Get User Details Hooks */

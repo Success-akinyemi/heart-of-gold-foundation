@@ -3,7 +3,9 @@ import jwt_decode from 'jwt-decode'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-axios.defaults.baseURL = 'http://localhost:8080'
+//axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = 'https://heart-of-gold-foundation.onrender.com'
+
 
 
 /**Get user from token */
