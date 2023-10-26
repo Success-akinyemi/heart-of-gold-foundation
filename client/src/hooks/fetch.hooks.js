@@ -20,7 +20,7 @@ export function useFetch(query){
                     },
                   };            
 
-                const { data, status} = !query ? await axios.get(`/api/user/${id}`, config) : await axios.get(`/api/getUsers/${id}`)
+                const { data, status} = !query ? await axios.get(`/api/user/${id}`, config) : await axios.get(`/api/getUsers/${id}`, config)
                 console.log('Data from Hooks>>>', data)
 
                 if(status === 200){

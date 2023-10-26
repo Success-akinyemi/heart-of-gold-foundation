@@ -4,6 +4,7 @@ import Protect from "../middleware/auth.js"
 
 
 const privateRouter = Router()
-
+//POST ROUTES
+privateRouter.route('/donation').post(controllers.donation)
 
 export default privateRouter

@@ -27,16 +27,21 @@ export async function registerUser({ username, email, password }){
         //console.log('before send',username, email, password, phoneNumber)
         const response  = await axios.post('/api/register', { username, email, password })
         //console.log('resPonse', response)
-        const { data } =response
-        localStorage.setItem('authToken', data.token)
-        console.log(data.token)
-        toast.success(`Welcome ${username}`)
 
+        if(response.data.success){
+            const { data } = response
+            localStorage.setItem('authToken', data.token)
+            console.log(data.token)
+            console.log('DATA', response)
+            toast.success(`Welcome ${username}`)
+            return null
+        }else{
+            return response.data.data
+        }
         
-        return null
     
     } catch (error) {
-        const errorMsg = error.response.data.error
+        const errorMsg = error.response.data.data
         console.log(errorMsg)
         return errorMsg
     }
@@ -45,16 +50,21 @@ export async function registerUser({ username, email, password }){
 /**LOGIN USER */
 export async function loginUser({ emailOrphoneNumber, password }){
     try {
-        const { data } = await axios.post('/api/login', { emailOrphoneNumber, password })
+        const response = await axios.post('/api/login', { emailOrphoneNumber, password })
         //console.log( email, password)
-        localStorage.setItem('authToken', data.token)
-        console.log('STATUS>>', data.success)
-        console.log('User Logged in', data.token)
 
-        
-    
+        if(response.data.success){
+            const { data } = response
+            localStorage.setItem('authToken', data.token)
+            console.log('STATUS>>', data.success)
+            console.log('User Logged in', data.token)
+            return null
+        }else{
+            return response.data.data
+        }
+
     } catch (error) {
-        const errorMsg = error.response.data.error
+        const errorMsg = error.response.data.data
         console.log(errorMsg)
         return errorMsg
     }
@@ -68,6 +78,7 @@ export async function forgotPassword({ email }){
         console.log('RES', res)
         return res
     } catch (error) {
+        console.log('ERROR', error)
         const errorMsg = error.response.data.error
         console.log(errorMsg)
         return errorMsg
@@ -96,11 +107,37 @@ export async function resetPassword({ resetToken, password }){
 }
 
 /**DONATE  */
-export async function donate({username, email, amount}){
+export async function donate({name, email, amount, purpose}){
     try {
-        const response = await axios.post('/api/donation', { username, email, amount})
+        const response = await axios.post('/api/donation', { name, email, amount, purpose})
+        
+        console.log(response.data);
+
+        const authorizationUrl = response.data.authorizationUrl; //paystack
+        console.log('url', authorizationUrl)
+        window.location.href = authorizationUrl; // Redirect the user to the Paystack checkout page
         
     } catch (error) {
+        const errorMsg = error.response.data.data
+        console.log(errorMsg)
+        return errorMsg
+    }
+}
+
+/**SUBSCRIBE */
+export async function subscribe({ email }){
+    try {
+        const response = await axios.post('/api/subscriber', { email })
         
+        if(response.data.success){
+            console.log(response.data.data)
+            toast.success(response.data.data)
+        }
+
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        console.log(errorMsg)
+        toast.error(errorMsg)
+        return errorMsg
     }
 }

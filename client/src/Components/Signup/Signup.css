@@ -3,12 +3,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-height: 100vh;
 }
 
   .signup-box {
     width: 360px;
     height: auto;
-
     background-color: var(--color-2);
     border-radius: 3px;
   }
@@ -22,6 +22,7 @@
   .signup-box h4 {
     text-align: center;
     font-size: 15px;
+    color: var(--bg-3);
   }
   
   .signup-box form {
@@ -43,7 +44,7 @@
     border-radius: 6px;
     outline: none;
   }
-  .signup-box input[type="button"] {
+  .signup-box input[type="submit"] {
     width: 320px;
     height: 35px;
     margin-top: 20px;
@@ -57,20 +58,18 @@
     padding-top: 20px;
     font-size: 15px;
   }
-  .signup-box .para-2 {
+  .sign-para-2 {
     text-align: center;
-    color: white;
+    color: var(--color-1);
     font-size: 15px;
     margin-top: 10px;
   }
-  .signup-box .para-2 a {
-    color: #49c1a2;
+  .sign-para-2 a {
+    color: var(--bg-3);
   }
 
   .error{
     text-align: center;
     color: red;
     font-weight: 600;
-    padding: 0;
-    margin: 0;
 }

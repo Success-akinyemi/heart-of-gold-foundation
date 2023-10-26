@@ -1,0 +1,97 @@
+.newCampaign{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.newCampaign .container{
+    padding-top: 70px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.newCampaign .container h2{
+    text-align: center;
+    margin-top: 30px;
+    color: var(--bg-3);
+}
+
+.newCampaign .container .content{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.newCampaign .container .content .campaignForm{
+    width: 50%;
+    padding: 20px;
+    background: var(--color-2);
+}
+
+.newCampaign .container .content .campaignForm .formInputs{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.newCampaign .container .content .campaignForm .formInputs label{
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.newCampaign .container .content .campaignForm .formInputs input{
+    width: 100%;
+    padding: 5px;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--color-1);
+}
+
+.newCampaign .container .content .campaignForm .formInputs textarea{
+    width: 100%;
+    padding: 5px;
+    height: 200px;
+    outline: none;
+    border: 2px solid var(--color-1);
+    resize: none;
+}
+
+.newCampaign .container .content .campaignForm .fBtn{
+    width: 100%;
+} 
+
+.newCampaign .container .content .campaignForm .fBtn .fbutton{
+    width: 100%;
+    padding: 20px;
+    background: var(--bg-3);
+    color: var(--color-2);
+    font-weight: 600;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    transition:  all 0.3s ease;
+}
+
+.newCampaign .container .content .campaignForm .fBtn .fbutton:hover{
+    transform: scale(1.03);
+}
+
+@media screen and (max-width: 820px) {
+    .newCampaign .container .content .campaignForm{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .newCampaign .container .content .campaignForm .fBtn .fbutton{
+        padding: 10px;
+    }
+}

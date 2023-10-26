@@ -1,0 +1,91 @@
+.campaign{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.campaign .campaign-container{
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.campaign .campaign-container .c-new{
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.campaign .campaign-container .c-new .c-new-link{
+    background: var(--bg-3);
+    color: var(--color-2);
+    padding: 10px;
+}
+
+.campaign .campaign-container h2{
+    margin-top: 30px;
+    color: var(--bg-3);
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.campaign .campaign-container .content{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.campaign .campaign-container .content .card{
+    width: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+.campaign .campaign-container .content .card img{
+    width: 100%;
+}
+
+.campaign .campaign-container .content .card .c-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.campaign .campaign-container .content .card .c-info h4{
+    font-size: 19px;
+}
+
+.campaign .campaign-container .content .card .c-info span{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campaign .campaign-container .content .card .c-btn{
+    margin-bottom: 5px;
+}
+
+.campaign .campaign-container .content .card .c-link{
+    background: var(--color-1);
+    color: var(--color-2);
+    border: 2px solid var(--color-1);
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.campaign .campaign-container .content .card .c-link:hover{
+    background: var(--color-2);
+    color: var(--color-1);
+}

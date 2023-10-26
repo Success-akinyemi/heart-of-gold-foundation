@@ -1,10 +1,10 @@
 const menuData = [
     {title: 'Homes', link: '/'},
     {title: 'About', link: '/about'},
-    {title: 'Campaigns', link: '/campaign'},
+    {title: 'Campaigns/Blogs', link: '/campaign'},
     {title: 'Gallery', link: '/gallery'},
     {title: 'Events/News', link: '/events'},
-    {title: 'Join Us', link: '/signup'},
+    {title: 'Join Us', link: '/login'},
     {title: 'Contact Us', link: '/contact'},
 ]
 

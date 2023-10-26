@@ -1,9 +1,12 @@
 import express from 'express'
 import { config } from 'dotenv'
 config()
+import cors from 'cors'
+import schedule  from 'node-schedule'
 import errorHandler from './middleware/error.js'
 import router from './routes/auth.js'
 import privateRouter from './routes/route.js'
+import DonationModel from './models/Donations.js'
 
 const app = express()
 app.use(express.json())
@@ -14,6 +17,8 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
+
+app.use(cors())
 
 /**HTTP get request */
 app.get('/', async (req, res) => {
@@ -33,6 +38,24 @@ import './connection/connection.js'
 app.use('/api', router)
 app.use('/api', privateRouter)
 
+
+const rule = new schedule.RecurrenceRule();
+rule.minute = 0; // This task runs at the start of every hour
+
+// Schedule the task
+const task = schedule.scheduleJob(rule, async () => {
+  const twentyFourHoursAgo = new Date();
+  twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+
+  try {
+    // Find and delete documents older than 24 hours with `valid` set to `false`
+    await DonationModel.deleteMany({ createdAt: { $lt: twentyFourHoursAgo }, valid: false });
+
+    console.log('Deleted old invalid donations.');
+  } catch (error) {
+    console.error('Error deleting donations:', error);
+  }
+});
 
 //Error Handler
 app.use(errorHandler)

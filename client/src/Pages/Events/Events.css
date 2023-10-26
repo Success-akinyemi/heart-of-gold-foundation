@@ -1,0 +1,17 @@
+.events{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.events .e-container{
+    padding-top: 70px;
+    margin-bottom: 40px;
+}
+
+.events .e-container h2{
+    margin-top: 30px;
+    text-align: center;
+    color: var(--bg-3);
+}

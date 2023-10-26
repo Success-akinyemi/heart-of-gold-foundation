@@ -11,6 +11,15 @@ function Login(){
     const navigate = useNavigate()
 
     const handleLogin = async (e) => {
+      e.preventDefault();
+
+      if(!emailOrphoneNumber || !password){
+        setTimeout(() => {
+          setError('')
+        }, 3000)
+        return setError('Provide all Information')
+      }
+
         e.preventDefault()
         try {
           setIsLoading(true)
@@ -22,7 +31,7 @@ function Login(){
               setError('')
             }, 3000)
           } else{
-            navigate('/home')
+            navigate('/')
 
           }
         } catch (error) {
@@ -43,10 +52,10 @@ function Login(){
         <label>Password</label>
         <input type="password" placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} />
         {error && <p className='error'>{error}</p>}
-        <input type="button" value="Submit" />
+        <input type="submit" value="Submit" />
       </form>
     </div>
-    <p class="para-2">
+    <p class="login-para-2">
       Don't have an account? <Link to="/signup" className='link'>Sign Up Here</Link>
     </p>
         </div>

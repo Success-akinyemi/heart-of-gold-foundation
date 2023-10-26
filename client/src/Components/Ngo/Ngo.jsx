@@ -1,7 +1,9 @@
+import { contact } from '../../data/contact'
 import './Ngo.css'
 import PhoneIcon  from '@mui/icons-material/LocalPhone'
 
 function Ngo() {
+    const { phoneNumber } = contact
   return (
     <div className='ngo'>
         <div className="padding content">
@@ -28,9 +30,9 @@ function Ngo() {
             <div className="call">
                 <h3>Call to Support us</h3>
 
-                <a href="tel:+" className='link phoneIcon'><PhoneIcon className='icon' /></a>
+                <a href={`tel:+${phoneNumber}`} className='link phoneIcon'><PhoneIcon className='icon' /></a>
                 
-                <a href="tel:+" className='link phoneText'>+2349012345678</a>
+                <a href={`tel:+${phoneNumber}`} className='link phoneText'>{`${phoneNumber}`}</a>
             </div>
         </div>
     </div>

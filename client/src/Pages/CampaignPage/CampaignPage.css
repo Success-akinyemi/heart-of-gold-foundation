@@ -1,0 +1,50 @@
+.campaignPage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.campaignPage .cp-container{
+    padding-top: 70px;
+    margin-bottom: 40px;
+}
+
+.campaignPage .cp-container h2{
+    text-align: center;
+    color: var(--color-1);
+    margin-top: 30px;
+    margin-bottom: 18px;
+}
+
+.campaignPage .cp-container span{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.campaignPage .cp-container .card{
+    margin-top: 15px;
+}
+
+.campaignPage .cp-container .card img{
+    width: 100%;
+}
+
+.campaignPage .cp-container .card .text{
+    margin-top: 20px;
+}
+
+.campaignPage .cp-container .foot{
+    margin-top: 30px;
+}
+
+.campaignPage .cp-container .foot .f-link{
+    background: var(--bg-3);
+    padding: 10px;
+    color: var(--color-2);
+    transition: all 0.3s ease;
+}
+
+.campaignPage .cp-container .foot .f-link:hover{
+    background: var(--bg-2);
+}

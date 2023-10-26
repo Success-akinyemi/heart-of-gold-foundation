@@ -5,7 +5,145 @@
     min-height: 100vh;
 }
 
+  /* POPUP COMPONENT */
+  
+  .gallery .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s ease-in-out;
+    z-index: 9999;
+  }
+  
+  .gallery .popup.active {
+    top: 50%;
+  }
+  
+  .gallery .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+  }
+  
+  .gallery .popup-content {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .gallery .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .gallery .popup-close:hover {
+    opacity: 0.8;
+  }
+
+/**  END POPUP COMPONENT */
+
+
 .gallery .container{
     padding-top: 70px;
     width: 100%;
+    margin-bottom: 40px;
+}
+
+.gallery .container .add{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.gallery .container .add span{
+    margin-left: auto;
+    background: var(--bg-3);
+    color: var(--color-2);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.gallery .container h2{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+    color: var(--bg-3);
+}
+
+.gallery .container .cards{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.gallery .container .cards .card{
+    width: 400px;
+    padding: 10px;
+}
+
+.gallery .container .cards .card img{
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.gallery .container .cards .card img:hover{
+    transform: scale(1.05);
+}
+
+.gallery .container .cards .card p{
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 820px) {
+    .gallery .container .cards .card{
+        padding: 0;
+        width: 600px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .container .cards .card p{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery .container .cards .card{
+        padding: 0;
+        width: 500px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .container .cards .card p{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .gallery .container .cards .card{
+        padding: 0;
+        width: 400px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .container .cards .card p{
+        font-size: 22px;
+    }
 }

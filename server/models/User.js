@@ -15,7 +15,7 @@ export const UserSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        unique: [true, 'Phone Number already exist Please Provide another']
+        unique: [true, 'Phone Number already exist Please Provide another'],
     },
     password: {
         type: String,

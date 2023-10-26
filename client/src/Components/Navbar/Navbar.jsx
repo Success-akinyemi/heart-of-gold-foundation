@@ -15,7 +15,9 @@ function Navbar() {
     return (
     <div className='padding navbar' >
         <div className="logo">
-            Heart of Gold Foundation
+            <Link className='link' to='/'>
+                Heart of Gold Foundation
+            </Link>
         </div>
 
         <div className={`menu ${menu ? 'show' : 'hide'}`}>
@@ -32,7 +34,7 @@ function Navbar() {
                 }
             </div>
 
-            <div className="donate">
+            <div className="n-donate">
                 <span><Link to='/donate' className='link'>Donate Now</Link></span>
             </div>
         </div>

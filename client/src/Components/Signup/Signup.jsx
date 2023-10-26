@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Signup.css'
 import { registerUser } from '../../helpers/api'
+import { useState } from 'react'
 
 function Signup(){
+  const navigate = useNavigate()
   const [error, setError] = useState('')
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -13,6 +15,12 @@ function Signup(){
   const handleRegister = async (e) => {
     e.preventDefault();
     
+    if(!username || !email || !password || !comfirmPassword){
+      setTimeout(() => {
+        setError('')
+      }, 3000)
+      return setError('Provide all Information')
+    }
 
     if(password !== comfirmPassword){
       setPassword('')
@@ -43,8 +51,7 @@ function Signup(){
           setError('')
         }, 3000)
       } else{
-        navigate('/home')
-        
+        navigate('/')
       }
     } catch (error) {
       console.log('ERROR REGISTEREING USER:', error)
@@ -71,14 +78,11 @@ function Signup(){
         <label>Confirm Password</label>
         <input type="password" placeholder="" value={comfirmPassword} onChange={(e) => setComfirmPassword(e.target.value)} />
         {error && <p className='error'>{error}</p>}
-        <input type="button" value="Submit" />
+        <input type="submit" value="Submit" />
       </form>
-{/*      <p>
-        By clicking the Sign Up button,you agree to our <br />
-        <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
-    </p>*/}
+
     </div>
-    <p class="para-2">
+    <p class="sign-para-2">
       Already have an account? <Link to="/login" className='link'>Login here</Link>
     </p>
         </div>

@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-height: 100vh;
 }
 
   .login-box {
@@ -22,6 +23,7 @@
   .login-box h4 {
     text-align: center;
     font-size: 15px;
+    color: var(--bg-3);
   }
   
   .login-box form {
@@ -43,7 +45,7 @@
     border-radius: 6px;
     outline: none;
   }
-  .login-box input[type="button"] {
+  .login-box input[type="submit"] {
     width: 320px;
     height: 35px;
     margin-top: 20px;
@@ -57,14 +59,14 @@
     padding-top: 20px;
     font-size: 15px;
   }
-  .login-box .para-2 {
+  .login-para-2 {
     text-align: center;
-    color: white;
+    color: var(--color-1);
     font-size: 15px;
     margin-top: 10px;
   }
-  .login-box .para-2 a {
-    color: #49c1a2;
+  .login-para-2 a {
+    color: var(--bg-3);
   }
 
   .error{
