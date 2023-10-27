@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './AboutUs.css'
 
 function AboutUs({ image, text, subTitle, title}) {
@@ -17,7 +18,7 @@ function AboutUs({ image, text, subTitle, title}) {
           </div>
         </div>
         <div className="btn">
-          <span>Learn More About Us</span>
+          <span><Link className='link' to='/about' >Learn More About Us</Link></span>
         </div>
       </div>
     </div>

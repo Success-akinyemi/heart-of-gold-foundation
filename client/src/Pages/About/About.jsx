@@ -8,8 +8,32 @@ import Chatbubble from '@mui/icons-material/ChatBubble'
 import LanguageIcon from '@mui/icons-material/Language';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import { contact } from '../../data/contact';
+import { useRef, useState } from 'react';
 
 function About(){
+    const [ isLoading, setIsLoading ] = useState(false)
+    const form = useRef();
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+    
+      try {
+            setIsLoading(true)
+          emailjs.sendForm('service_x6n2mfu', 'template_3ki2n7b', form.current, 'usy4tHyf_VtLx8ahc')
+            .then((result) => {
+                console.log(result.text);
+                e.target.reset()
+                toast.success('Message Sent Successful')
+            }, (error) => {
+                console.log(error.text);
+                toast.error('Unable to send Messages')
+            });
+      } catch (error) {
+        
+      } finally {
+        setIsLoading(false)
+      }
+    };
 
     const { phoneNumber, smsNumber } = contact
     return (
@@ -29,26 +53,26 @@ function About(){
 
                         <div className="inputField">
                             <label htmlFor="">Name:</label>
-                            <input type="text" />
+                            <input type="text" id='name' name='user_name' />
                         </div>
 
                         <div className="inputField">
                             <label htmlFor="">Email:</label>
-                            <input type="email" />
+                            <input type="email" id='email' name='user_email' />
                         </div>
 
                         <div className="inputField">
                             <label htmlFor="">Phone Number:</label>
-                            <input type="number" />
+                            <input type="number" id='number' name='user_number' />
                         </div>
 
                         <div className="inputField">
                             <label htmlFor="">Message:</label>
-                            <textarea type="text" ></textarea>
+                            <textarea type="text" id='message' name='message' ></textarea>
                         </div>
 
                         <div className="inputField">
-                            <input type="submit" value="Message" />
+                            <input type="submit" value={ isLoading ? 'Sending...' : 'Message'} disabled={isLoading} />
                         </div>
                     </form>
                 </div>

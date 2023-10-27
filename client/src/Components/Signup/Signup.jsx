@@ -78,7 +78,7 @@ function Signup(){
         <label>Confirm Password</label>
         <input type="password" placeholder="" value={comfirmPassword} onChange={(e) => setComfirmPassword(e.target.value)} />
         {error && <p className='error'>{error}</p>}
-        <input type="submit" value="Submit" />
+        <input type="submit" value={isLoading ? 'Signing up...' : 'Submit'} disabled={isLoading} />
       </form>
 
     </div>

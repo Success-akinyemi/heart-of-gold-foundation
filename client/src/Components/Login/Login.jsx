@@ -52,11 +52,14 @@ function Login(){
         <label>Password</label>
         <input type="password" placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} />
         {error && <p className='error'>{error}</p>}
-        <input type="submit" value="Submit" />
+        <input type="submit" value={ isLoading ? 'Please Wait...' : 'Submit'} disabled={isLoading} />
       </form>
     </div>
     <p class="login-para-2">
       Don't have an account? <Link to="/signup" className='link'>Sign Up Here</Link>
+    </p>
+    <p class="login-para-2">
+      Forgot Password? <Link to="/forgotPassword" className='link'>Recover Here</Link>
     </p>
         </div>
     )

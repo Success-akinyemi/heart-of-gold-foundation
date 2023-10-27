@@ -10,7 +10,7 @@ export default async function Protect(req, res, next){
     }
 
     if(!token){
-        return next(new ErrorResponse('Not Authorized to access this route', 401))
+        return res.status(401).json({ success: false, data: 'Not Authorized to access this route'})
     }
 
     try {
@@ -19,12 +19,12 @@ export default async function Protect(req, res, next){
         const user = await UserModel.findById(decoded.id)
 
         if(!user){
-            return next(new ErrorResponse('No User Found with this ID', 404))
+            return res.status(404).json({ success: false, data: 'No User Found with this ID'})
         }
 
         req.user = user
         next()
     } catch (error) {
-        return next(new ErrorResponse('Not Authorized to access this routes', 401))
+        return res.status(401).json({ success: false, data: 'Not Authorized to access this routes'})
     }
 }

@@ -39,6 +39,13 @@ body{
   font-size: 30px;
 }
 
+@media screen and (max-width: 1245px) {
+  .padding{
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
 @media screen and (max-width: 820px) {
   .padding{
     padding-left: 50px;

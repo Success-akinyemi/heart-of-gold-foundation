@@ -17,9 +17,28 @@
     margin-bottom: 18px;
 }
 
-.campaignPage .cp-container span{
+.campaignPage .cp-container .middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campaignPage .cp-container .middle span{
     font-weight: 600;
     font-size: 15px;
+}
+
+.campaignPage .cp-container .middle .buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.campaignPage .cp-container .middle .buttons span{
+    cursor: pointer;
+}
+
+.campaignPage .cp-container .middle .buttons span .icon{
+    font-size: 30px;
 }
 
 .campaignPage .cp-container .card{

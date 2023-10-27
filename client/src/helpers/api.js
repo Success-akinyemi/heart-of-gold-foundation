@@ -81,7 +81,7 @@ export async function forgotPassword({ email }){
         return res
     } catch (error) {
         console.log('ERROR', error)
-        const errorMsg = error.response.data.error
+        const errorMsg = error.response.data.data
         console.log(errorMsg)
         return errorMsg
     }
@@ -96,7 +96,7 @@ export async function resetPassword({ resetToken, password }){
         console.log('RESET', res, success)
         const navigate = useNavigate()
 
-        if(success === true){
+        if(success){
             toast.success(res)
             navigate('/registration')
         }
@@ -140,6 +140,65 @@ export async function subscribe({ email }){
         const errorMsg = error.response.data.data
         console.log(errorMsg)
         toast.error(errorMsg)
+        return errorMsg
+    }
+}
+
+
+/** New Campaign */
+export async function newCampaign({ id, title, message, image }){
+    const token = await localStorage.getItem('authToken')
+    try {
+        const response = await axios.post('/api/newCampaign', { id, title, message, image }, {headers: {Authorization: `Bearer ${token}`}})
+        
+        if(response.data.success){
+            const res = response.data.data
+            toast.success(res)
+            return res
+        }
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        toast.error(errorMsg)
+        return errorMsg
+    }
+}
+
+/**Edit Campaign */
+export async function editCampaign({ userId, id, title, message, image }){
+    const token = await localStorage.getItem('authToken')
+    try {
+        const response = await axios.put('/api/editCampaign', { userId, id, title, message, image }, {headers: {Authorization: `Bearer ${token}`}})
+
+        if(response.data.success){
+            const res = response.data.data
+            toast.success(res)
+            return res
+        }
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        toast.error(errorMsg)
+        return errorMsg
+    }
+}
+
+/**Delete Campaign */
+export async function deleteCampaign({userId, id}){
+
+    try {
+        const token = await localStorage.getItem('authToken')
+        const response = await axios.delete(`/api/deleteCampaign?userId=${userId}&id=${id}`, {headers: {Authorization: `Bearer, ${token}`}})
+        console.log('response>>', response.data.success)
+        if(response.data.success === true){
+            const res = response.data.data
+            console.log(res)
+            toast.success(res)
+            window.location.href = '/campaign'
+            return res
+        }
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        toast.error(errorMsg)
+        console.log(errorMsg)
         return errorMsg
     }
 }

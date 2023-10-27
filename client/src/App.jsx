@@ -11,6 +11,10 @@ import { Toaster } from 'react-hot-toast'
 import CampaignPage from './Pages/CampaignPage/CampaignPage'
 import Events from './Pages/Events/Events'
 import NewCampaign from './Pages/NewCampaign/NewCampaign'
+import Appericiation from './Pages/Appericiation/Appericiation'
+import ForgotPassword from './Components/ForgotPassword/ForgotPassword'
+import ResetPassword from './Components/ResetPassword/ResetPassword'
+import EditCampaign from './Pages/EditCampaign/EditCampaign'
 
 function App() {
 
@@ -23,11 +27,15 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/campaign' element={<Campaign />} />
           <Route path='/newCampaign' element={<NewCampaign />} />
+          <Route path='/editCampaign/:id' element={<EditCampaign />} />
           <Route path='/campaign/:id' element={<CampaignPage />} />
           <Route path='/donate' element={<Donate />} />
           <Route path='/events' element={<Events />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/forgotPassword' element={<ForgotPassword />} />
+          <Route path='passwordReset/:resetToken' element={<ResetPassword />} /> 
+          <Route path='/appericiation' element={<Appericiation />} />
           <Route path='/' element={<LandingPage />} />
         </Routes>
       </BrowserRouter>

@@ -185,6 +185,7 @@
         background: var(--bg-2);
         padding: 15px;
         border-radius: 15px;
+        color: var(--color-2);
     }
 }
 

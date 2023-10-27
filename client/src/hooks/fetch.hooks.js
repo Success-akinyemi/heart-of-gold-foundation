@@ -38,3 +38,30 @@ export function useFetch(query){
 
     return data
 }
+
+/**Get Campaign */
+export function useFetchCampaign(query){
+    const [campaignData, setCampaignData] = useState({ isLoadingCampaign: true, apiCampaignData: null, campaignDataStatus: null, campaignServerError: null})
+
+    useEffect(() => {
+        const fetchCampaignData =  async () => {
+            try {
+                console.log('query', query)
+
+                const { data, status} = !query ? await axios.get(`/api/campaign`) : await axios.get(`/api/getCampaign/${query}`)
+                console.log('Data from Campaign Hooks>>>', data)
+
+                if(status === 200){
+                    setCampaignData({ isLoadingCampaign: false, apiCampaignData: data, campaignDataStatus: status, campaignServerError: null})
+                } else{
+                    setCampaignData({ isLoadingCampaign: false, apiCampaignData: null, campaignDataStatus: status, campaignServerError: null})
+                }
+            } catch (error) {
+                setCampaignData({ isLoadingCampaign: false, apiCampaignData: null, campaignDataStatus: null, campaignServerError: error})
+            }
+        };
+        fetchCampaignData()
+    }, [query])
+
+    return campaignData
+}
