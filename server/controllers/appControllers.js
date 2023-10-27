@@ -68,9 +68,9 @@ export async function verifyDonation(req, res){
         message: 'Donation recieved Successfully',
         user: transactionId 
       }
-
-      console.log('REDIRECT TO THANK YOU PAGE')
-      res.json({ redirectUrl: `${process.env.THANK_YOU}?user=${encodeURIComponent(JSON.stringify(responseData.user))}` });
+      const  url = `${process.env.THANK_YOU}?user=${encodeURIComponent(JSON.stringify(responseData.user))}` 
+      console.log('REDIRECT TO THANK YOU PAGE', url)
+      res.json({ redirectUrl: url});
     } else {
       console.log('DONATION STATUS NOT SUCCESS>>>', statusMsg)
     }

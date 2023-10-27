@@ -12,6 +12,7 @@ function Appericiation() {
     const redirectUrl = urlParams.get('redirectUrl');
 
     if (redirectUrl) {
+      console.log('Received redirectUrl:', redirectUrl);
       // Use window.location to navigate to the redirect URL
       window.location.href = redirectUrl;
     }
