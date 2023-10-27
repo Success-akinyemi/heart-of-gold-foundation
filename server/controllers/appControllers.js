@@ -70,7 +70,7 @@ export async function verifyDonation(req, res){
       }
 
       console.log('REDIRECT TO THANK YOU PAGE')
-      res.redirect(`${process.env.THANK_YOU}?user=${encodeURIComponent(JSON.stringify(responseData.user))}`);
+      res.json({ redirectUrl: `${process.env.THANK_YOU}?user=${encodeURIComponent(JSON.stringify(responseData.user))}` });
     } else {
       console.log('DONATION STATUS NOT SUCCESS>>>', statusMsg)
     }
@@ -81,7 +81,7 @@ export async function verifyDonation(req, res){
     console.log('Transaction Failure');
   }
 
-  res.send(200).end()
+  res.end()
 }
 
 export async function newCampaign(req, res){

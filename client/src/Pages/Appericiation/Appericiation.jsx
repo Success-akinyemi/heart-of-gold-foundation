@@ -4,15 +4,18 @@ import Navbar from '../../Components/Navbar/Navbar'
 import './Appericiation.css'
 
 function Appericiation() {
-  const [ userData, setUserData ] = useState(null)
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const userString = urlParams.get('user')
-    const user = JSON.parse(userString)
+    // Handle the redirection when the component mounts
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const redirectUrl = urlParams.get('redirectUrl');
 
-    setUserData(user)
-  }, [])
+    if (redirectUrl) {
+      // Use window.location to navigate to the redirect URL
+      window.location.href = redirectUrl;
+    }
+  }, []);
 
   console.log('USER>>', userData)
   return (
