@@ -1,7 +1,6 @@
 import CampaignModel from "../models/Campaign.js";
 import DonationModel from "../models/Donations.js";
 import axios from 'axios'
-import { format } from 'date-fns'
 import UserModel from "../models/User.js";
 
 
@@ -34,7 +33,7 @@ export async function donation(req, res){
         res.send({ authorizationUrl: authorization_url });
 
         const saveDonation = await DonationModel.create({ 
-            email, amount, transactionRef: reference, purpose
+            email, amount, transactionRef: reference, purpose, name
         })
         console.log('DONATION SAVED', saveDonation)
     } catch (error) {
@@ -51,17 +50,30 @@ export async function verifyDonation(req, res){
     const email = data.customer.email
     const amount = data.amount;
     const refrence = data.reference || ''
+    const statusMsg = data.status || ''
     const response = data.gateway_response || ''
-    const channel = data.channel || ''
-    const time = data.paid_at
-    const paidAt = format(new Date(time), 'yyyy-MM-dd hh:mm:ss a') || ''
-    const bank = data.authorization.sender_bank || ''
-    const card = data.authorization.card_type || ''
-    const account = data.authorization.sender_bank_account_number || ''
-    const name = data.authorization.sender_name || ''
-    const narration = data.authorization.narration || ''
+    
     console.log('Amount>>',amount/100, '>>EMAIL>>',email)
     console.log('Meta data>>',metadata)
+
+    if(statusMsg === 'success'){
+      const transactionId = await DonationModel.findOne({ transactionRef: refrence})
+  
+      transactionId.valid = true
+      await transactionId.save()
+      console.log('DONATION SAVE AND COMPLETED')
+
+      const responseData = {
+        success: true,
+        message: 'Donation recieved Successfully',
+        user: transactionId 
+      }
+
+      console.log('REDIRECT TO THANK YOU PAGE')
+      res.redirect(`${process.env.THANK_YOU}?user=${encodeURIComponent(JSON.stringify(responseData.user))}`);
+    } else {
+      console.log('DONATION STATUS NOT SUCCESS>>>', statusMsg)
+    }
     
 
     console.log('Successful transaction:');

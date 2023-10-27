@@ -7,7 +7,10 @@ const DonationSchema = new mongoose.Schema({
     },
     amount: {
         type: Number,
-        required: [true, 'Please Provide an Email Address'],
+        required: [true, 'Amount Required'],
+    },
+    name: {
+        type: String
     },
     purpose: {
         type: String

@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react'
 import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
 import './Appericiation.css'
 
 function Appericiation() {
+  const [ userData, setUserData ] = useState(null)
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const userString = urlParams.get('user')
+    const user = JSON.parse(userString)
+
+    setUserData(user)
+  }, [])
+
+  console.log('USER>>', userData)
   return (
     <div className='appericiation'>
         <Navbar />

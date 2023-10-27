@@ -15,6 +15,8 @@ import Appericiation from './Pages/Appericiation/Appericiation'
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword'
 import ResetPassword from './Components/ResetPassword/ResetPassword'
 import EditCampaign from './Pages/EditCampaign/EditCampaign'
+import Profile from './Pages/Profile/Profile'
+import { AdminUser, AuthorizeUser, ValidToken } from './auth/PrivateRoute'
 
 function App() {
 
@@ -26,8 +28,8 @@ function App() {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/about' element={<About />} />
           <Route path='/campaign' element={<Campaign />} />
-          <Route path='/newCampaign' element={<NewCampaign />} />
-          <Route path='/editCampaign/:id' element={<EditCampaign />} />
+          <Route path='/newCampaign' element={<AuthorizeUser><ValidToken><AdminUser><NewCampaign /></AdminUser></ValidToken></AuthorizeUser>} />
+          <Route path='/editCampaign/:id' element={<AuthorizeUser><ValidToken><AdminUser><EditCampaign /></AdminUser></ValidToken></AuthorizeUser>} />
           <Route path='/campaign/:id' element={<CampaignPage />} />
           <Route path='/donate' element={<Donate />} />
           <Route path='/events' element={<Events />} />
@@ -36,6 +38,7 @@ function App() {
           <Route path='/forgotPassword' element={<ForgotPassword />} />
           <Route path='passwordReset/:resetToken' element={<ResetPassword />} /> 
           <Route path='/appericiation' element={<Appericiation />} />
+          <Route path='/profile' element={<AuthorizeUser><ValidToken><Profile /></ValidToken></AuthorizeUser>} />
           <Route path='/' element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
