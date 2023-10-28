@@ -3,6 +3,7 @@ import DonationModel from "../models/Donations.js";
 import axios from 'axios'
 import UserModel from "../models/User.js";
 import sendEmail from "../utils/sendEmail.js";
+import Mailgen from 'mailgen'
 
 const mailGenerator = new Mailgen({
   theme: 'default',
@@ -152,7 +153,7 @@ export async function verifyDonation(req, res){
                   subject: 'Successful Donation',
                   text: emailTemplate
               })
-              
+
     console.log(verificationData);
     console.log('USER>>', user);
     res.status(200).json({ success: true, data: user});
