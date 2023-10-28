@@ -18,7 +18,7 @@ function Appericiation() {
     }
   }, []);
 
-  console.log('USER>>', userData)
+
   return (
     <div className='appericiation'>
         <Navbar />
