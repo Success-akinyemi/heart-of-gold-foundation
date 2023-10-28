@@ -2,7 +2,15 @@ import CampaignModel from "../models/Campaign.js";
 import DonationModel from "../models/Donations.js";
 import axios from 'axios'
 import UserModel from "../models/User.js";
+import sendEmail from "../utils/sendEmail.js";
 
+const mailGenerator = new Mailgen({
+  theme: 'default',
+  product: {
+      name: `${process.env.MAIL_SENDER_NAME}`,
+      link: `${process.env.MAIL_WEBSITE_LINK}`
+  }
+})
 
 export async function donation(req, res){
     const { email, amount, name, purpose } = req.body
@@ -119,7 +127,32 @@ export async function verifyDonation(req, res){
       return res.status(400).json({ success: false, data: 'TRANSACTION NOT SUCCESSFUL'})
     }
 
+    //SEND EMAIL
 
+                // send mail
+                const emailContent = {
+                  body: {
+                      intro: 'Successfull Donation',
+                      action: {
+                          instructions: `Thank you ${user.name} for Donating to Us. we Appericiate you donation towards ${user.purpose}.`,
+                      },
+                      outro: `
+                          For more inquires visit our website and connect with us. ${process.env.RESET_URL}
+  
+                          Lets continue to touch Lives.
+                      `
+                  },
+              };
+  
+              const emailTemplate = mailGenerator.generate(emailContent)
+              const emailText = mailGenerator.generatePlaintext(emailContent)
+              
+              await sendEmail({
+                  to: user.email,
+                  subject: 'Successful Donation',
+                  text: emailTemplate
+              })
+              
     console.log(verificationData);
     console.log('USER>>', user);
     res.status(200).json({ success: true, data: user});

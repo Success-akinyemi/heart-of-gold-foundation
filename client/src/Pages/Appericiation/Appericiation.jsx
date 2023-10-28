@@ -6,7 +6,8 @@ import { verifyDonation } from '../../helpers/api';
 
 function Appericiation() {
   const [ isLoadingData, setIsLoadingData ] = useState(false)
-
+  const [ data, setData] = useState({})
+  
   useEffect(() => {
     const fetchData = async () => {
       // Parse the URL parameters
@@ -19,6 +20,7 @@ function Appericiation() {
           setIsLoadingData(true)
           const res = await verifyDonation({reference})
           console.log("RED",res)
+          setData(res)
           
         } catch (errorMsg) {
           console.log(errorMsg)
@@ -31,7 +33,7 @@ function Appericiation() {
     fetchData();
   }, []);
 
-
+console.log('DATA',data)
   return (
     <div className='appericiation'>
         <Navbar />
@@ -43,14 +45,15 @@ function Appericiation() {
                 <>                
                 <h1>Appericiation</h1>
                 <h2>We Appericiate Your Donation Towards Making Impact In our Society</h2>
-
-                <div className="card">
-                    <span><h1>Success</h1></span>
-                    <p>We Treasure and value your Donation</p>
-                </div>
-
+                
                 <div className="footNote">
                     <h1>we say a big thank you</h1>
+                </div>
+
+                <div className="card">
+                    <span><h1>{data?.data.name}</h1></span>
+                    <p>We Treasure and value your Donation</p>
+                    <p>Purpose of Donation: {data?.data.purpose}</p>
                 </div>
                 </>
               )
