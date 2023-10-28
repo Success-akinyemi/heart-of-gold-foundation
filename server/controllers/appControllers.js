@@ -104,11 +104,24 @@ export async function verifyDonation(req, res){
     const response = await axios.get(verifyUrl, options);
 
     const verificationData = response.data;
-    const { status, amount } = verificationData.data;
+    const msg = response.message
+    console.log("<MESSAGE>>>", msg)
+    const { status, reference } = verificationData.data;
+
+    if(status === 'success'){
+      const user = await DonationModel.findOne({ transactionRef: reference })
+
+      if(!user){
+        return res.status(400).json({ success: false, data: 'USER NOT FOUND'})
+      }
+    } else{
+      return res.status(400).json({ success: false, data: 'TRANSACTION NOT SUCCESSFUL'})
+    }
 
 
     console.log(verificationData);
-    res.status(200).json({ success: true, data: verificationData})(verificationData);
+    console.log('USER>>', user);
+    res.status(200).json({ success: true, data: user});
   } catch (error) {
     console.log('ERROR VERIFYING DONATION', error);
     res.status(500).json({ success: false, data: 'Unable To get Donation' });
