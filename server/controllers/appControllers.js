@@ -134,10 +134,9 @@ export async function verifyDonation(req, res){
                 const emailContent = {
                   body: {
                       intro: 'Successfull Donation',
-                      action: {
-                          instructions: `Thank you ${user.name} for Donating to Us. we Appericiate you donation towards ${user.purpose}.`,
-                      },
                       outro: `
+                          Thank you ${user.name} for Donating to Us. we Appericiate you donation towards ${user.purpose}.
+
                           For more inquires visit our website and connect with us. ${process.env.RESET_URL}
   
                           Lets continue to touch Lives.

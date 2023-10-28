@@ -51,9 +51,9 @@ console.log('DATA',data)
                 </div>
 
                 <div className="card">
-                    <span><h1>{data?.data.name}</h1></span>
+                    <span><h1>{data?.data?.name}</h1></span>
                     <p>We Treasure and value your Donation</p>
-                    <p>Purpose of Donation: {data?.data.purpose}</p>
+                    <p>Purpose of Donation: {data?.data?.purpose}</p>
                 </div>
                 </>
               )
