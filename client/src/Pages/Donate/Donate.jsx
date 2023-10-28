@@ -46,6 +46,7 @@ function Donate() {
     }
 
     try {
+      setIsLoadingData(true)
         const errorMsg = await donate({ name, email, amount, purpose });
     
         if(errorMsg){

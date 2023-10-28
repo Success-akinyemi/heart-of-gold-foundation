@@ -126,6 +126,20 @@ export async function donate({name, email, amount, purpose}){
     }
 }
 
+/**VERIFY DONATION */
+export async function verifyDonation({ reference }){
+    try {
+        const response = await axios.post('/api/verifyDonation', { reference })
+        console.log(response.data)
+        const res = response.data
+        return res
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        console.log(errorMsg)
+        return errorMsg
+    }
+}
+
 /**SUBSCRIBE */
 export async function subscribe({ email }){
     try {

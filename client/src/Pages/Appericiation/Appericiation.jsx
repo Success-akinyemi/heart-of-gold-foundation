@@ -2,18 +2,30 @@ import { useEffect, useState } from 'react'
 import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
 import './Appericiation.css'
+import { verifyDonation } from '../../helpers/api';
 
 function Appericiation() {
 
   useEffect(() => {
-    // Parse the URL parameters
-    const queryParams = new URLSearchParams(window.location.search);
-    const reference = queryParams.get('reference');
-
-
-    if (reference) {
-      console.log('REF??',reference)
+    const fetchData = async () => {
+      // Parse the URL parameters
+      const queryParams = new URLSearchParams(window.location.search);
+      const reference = queryParams.get('reference');
+      
+      if (reference) {
+        try {
+          console.log('REF??',reference)
+    
+          const res = await verifyDonation({reference})
+          console.log("RED",res)
+          
+        } catch (errorMsg) {
+          console.log(errorMsg)
+        }
+      }
     }
+
+    fetchData();
   }, []);
 
 

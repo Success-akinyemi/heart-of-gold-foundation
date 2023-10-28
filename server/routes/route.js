@@ -6,8 +6,9 @@ import Protect from "../middleware/auth.js"
 const privateRouter = Router()
 //POST ROUTES
 privateRouter.route('/donation').post(controllers.donation)
-privateRouter.route('/verifyDonation').post(controllers.verifyDonation)
+privateRouter.route('/verifyDonationFromPaystack').post(controllers.verifyDonationFromPaystack)
 privateRouter.route('/newCampaign').post(Protect, controllers.newCampaign)
+privateRouter.route('/verifyDonation').post(controllers.verifyDonation)
 
 // GET ROUTES
 privateRouter.route('/getCampaign/:id').get(controllers.getCampaignById)

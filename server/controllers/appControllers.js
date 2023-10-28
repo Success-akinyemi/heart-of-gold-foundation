@@ -42,7 +42,7 @@ export async function donation(req, res){
     }
 }
 
-export async function verifyDonation(req, res){
+export async function verifyDonationFromPaystack(req, res){
   const { event, data } = req.body;
 
   if (event === 'charge.success') {
@@ -82,6 +82,37 @@ export async function verifyDonation(req, res){
   }
 
   res.end()
+}
+
+export async function verifyDonation(req, res){
+  const { reference } = req.body
+  console.log('REFERENCE', reference)
+
+  try {
+
+    const verifyUrl = `https://api.paystack.co/transaction/verify/${reference}`;
+    console.log('urlll>>', verifyUrl);
+
+    const options = {
+      headers: {
+        Authorization: `Bearer ${process.env.PAYSTACK_TEST_SK}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+    };
+
+    const response = await axios.get(verifyUrl, options);
+
+    const verificationData = response.data;
+    const { status, amount } = verificationData.data;
+
+
+    console.log(verificationData);
+    res.status(200).json({ success: true, data: verificationData})(verificationData);
+  } catch (error) {
+    console.log('ERROR VERIFYING DONATION', error);
+    res.status(500).json({ success: false, data: 'Unable To get Donation' });
+  }
 }
 
 export async function newCampaign(req, res){
