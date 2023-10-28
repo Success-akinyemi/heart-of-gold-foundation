@@ -6,15 +6,13 @@ import './Appericiation.css'
 function Appericiation() {
 
   useEffect(() => {
-    // Handle the redirection when the component mounts
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const redirectUrl = urlParams.get('redirectUrl');
+    // Parse the URL parameters
+    const queryParams = new URLSearchParams(window.location.search);
+    const reference = queryParams.get('reference');
 
-    if (redirectUrl) {
-      console.log('Received redirectUrl:', redirectUrl);
-      // Use window.location to navigate to the redirect URL
-      window.location.href = redirectUrl;
+
+    if (reference) {
+      console.log('REF??',reference)
     }
   }, []);
 
