@@ -107,9 +107,10 @@ export async function verifyDonation(req, res){
     const msg = response.message
     console.log("<MESSAGE>>>", msg)
     const { status } = verificationData.data;
+    let user;
 
     if(status === 'success'){
-      const user = await DonationModel.findOne({ transactionRef: reference })
+      user = await DonationModel.findOne({ transactionRef: reference })
 
       if(!user){
         return res.status(400).json({ success: false, data: 'USER NOT FOUND'})
