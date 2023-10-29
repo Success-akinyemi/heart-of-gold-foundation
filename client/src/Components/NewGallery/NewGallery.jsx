@@ -1,20 +1,21 @@
 import { useState } from 'react';
 import './NewGallery.css'
 import toast from 'react-hot-toast';
+import { newGallery } from '../../helpers/api';
 
-function NewGallery() {
+function NewGallery({userId}) {
   const [ desc, setDesc ] = useState('')
-  const [houseImage, setHouseImage] = useState(null)
-  const [ isLoading, setIsLoading ] = useState(false)
+  const [ galleryImage, setGalleryImage] = useState(null)
+  const [ isLoadingData, setisLoadingData ] = useState(false)
   
   const clearInputFields = () => {
     setDesc('');
-    setHouseImage(null);
+    setGalleryImage(null);
 
 }
 
-    const handleHouseImageChange = (e) => {
-      setHouseImage(e.target.files[0])
+    const handleGalleryImageChange = (e) => {
+      setGalleryImage(e.target.files[0])
     }
 
       const uploadSingleImage = async (image) => {
@@ -44,15 +45,16 @@ function NewGallery() {
         }
     };
 
-    const handleNewGallery = async () => {
+    const handleNewGallery = async (e) => {
+      e.preventDefault()
       try {
-        setIsLoading(true)
-        const ImageUrl = await uploadSingleImage(image)
+        setisLoadingData(true)
+        const ImageUrl = await uploadSingleImage(galleryImage)
 
-        const AddNewGallery = await ''
+        const response = await newGallery({ userId, ImageUrl, desc })
 
-        if (AddNewGallery === 'success') {
-          toast.success('House Uploaded');
+        if (response) {
+          toast.success(response);
           // Clear input fields upon success
           clearInputFields();
       }
@@ -60,15 +62,15 @@ function NewGallery() {
         console.log('Error::', error)
         toast.error('Failed to upload');
       } finally {
-        setIsLoading(false)
+        setisLoadingData(false)
       }
     } 
 
   return (
-    <form className='newGallery'>
+    <form className='newGallery' onSubmit={handleNewGallery}>
         <div className="inputGroup">
             <label htmlFor='image-upload'>Upload Image</label>
-            <input type='file' id='image-upload' accept='image/jpeg image/png' onChange={handleHouseImageChange}/>
+            <input type='file' id='image-upload' accept='image/jpeg image/png' onChange={handleGalleryImageChange}/>
         </div>
 
         <div className="inputGroup">
@@ -76,7 +78,7 @@ function NewGallery() {
             <input type="text" placeholder='description' value={desc} onChange={(e) => setDesc(e.target.value)} />
         </div>
 
-        <button className='newBtn'>Upload</button>
+        <button className='newBtn'>{isLoadingData ? 'Uploading' : 'Upload'}</button>
     </form>
   )
 }

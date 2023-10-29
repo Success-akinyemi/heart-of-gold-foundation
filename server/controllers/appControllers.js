@@ -4,6 +4,7 @@ import axios from 'axios'
 import UserModel from "../models/User.js";
 import sendEmail from "../utils/sendEmail.js";
 import Mailgen from 'mailgen'
+import GalleryModel from "../models/Gallery.js";
 
 const mailGenerator = new Mailgen({
   theme: 'default',
@@ -133,7 +134,7 @@ export async function verifyDonation(req, res){
                 // send mail
                 const emailContent = {
                   body: {
-                      intro: 'Successfull Donation',
+                      intro: 'Successfull Donation Recieved',
                       outro: `
                           Thank you ${user.name} for Donating to Us. we Appericiate you donation towards ${user.purpose}.
 
@@ -269,6 +270,42 @@ export async function deleteCampaign(req, res){
     } else{
       return res.status(400).json({success: false, data: 'Failed to delete Campaign'})
     }
+  } catch (error) {
+    console.log('ERROR DELETING CAMPAIGN', error)
+    res.status(500).json({ success: false, data: 'Could not delete Campaign' })
+  }
+}
+
+export async function newGallery(req, res){
+  const { userId, ImageUrl, desc } = req.body
+  try {
+
+    const user = await UserModel.findById({ _id: userId})
+
+    if(!user.isAdmin){
+      return res.status(404).json({ success: false, data: 'NOT ALLOWED'})
+    }
+
+    const newGallery = new GalleryModel({ image: ImageUrl, desc })
+    const saveGallery = await newGallery.save()
+    console.log('NEW GALLERY SAVED')
+    
+    res.status(201).json({ success: true, data: 'Image save to Gallery'})
+  } catch (error) {
+    console.log('ERROR ADDING NEW GALLERY', error)
+    res.status(500).json({ success: false, data: 'Failed to add to Gallery'})
+  }
+}
+
+export async function getGallery(req, res){
+  try {
+    const gallery = await GalleryModel.find()
+
+    if(!gallery){
+      return res.status(400).json({ success: false, data: 'No Images Found'})
+    }
+
+    res.status(200).json({ success: true, data: gallery})
   } catch (error) {
     console.log('ERROR DELETING CAMPAIGN', error)
     res.status(500).json({ success: false, data: 'Could not delete Campaign' })

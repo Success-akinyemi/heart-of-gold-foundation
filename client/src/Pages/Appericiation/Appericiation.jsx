@@ -16,10 +16,10 @@ function Appericiation() {
       
       if (reference) {
         try {
-          console.log('REF??',reference)
+          //console.log('REF??',reference)
           setIsLoadingData(true)
           const res = await verifyDonation({reference})
-          console.log("RED",res)
+          //console.log("RED",res)
           setData(res)
           
         } catch (errorMsg) {
@@ -33,7 +33,7 @@ function Appericiation() {
     fetchData();
   }, []);
 
-console.log('DATA',data)
+//console.log('DATA',data)
   return (
     <div className='appericiation'>
         <Navbar />

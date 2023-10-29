@@ -4,16 +4,24 @@ import Navbar from '../../Components/Navbar/Navbar'
 import { gallery } from '../../data/gallery'
 import './Gallery.css'
 import NewGallery from '../../Components/NewGallery/NewGallery'
+import { useFetch, useFetchGallery } from '../../hooks/fetch.hooks'
 
 function Gallery(){
     const [selectedCard, setSelectedCard] = useState(null)
+    const { apiData } = useFetch()
+    const { apiGalleryData, isLoadingGallery } = useFetchGallery()
+    const userId = apiData?.data._id
+    const adminUser = apiData?.data.isAdmin
+
+    const galleryInfo = apiGalleryData?.data
+    console.log('GALLERY', galleryInfo)
 
     const renderPopupComponent = () => {
         switch(selectedCard) {
           case 'newGallery' :
             return (
               <div>
-                    <NewGallery />
+                    <NewGallery userId={userId} />
               </div>
             );
         }
@@ -52,20 +60,31 @@ function Gallery(){
         )}
         <Navbar />
         <div className="padding container">
-          <div className="add">
-            <span onClick={() => setSelectedCard('newGallery')}>Add To Gallery</span>
-          </div>
+          {
+            adminUser && (
+              <div className="add">
+                <span onClick={() => setSelectedCard('newGallery')}>Add To Gallery</span>
+              </div>
+            )
+          }
 
           <h2>Photo Gallery</h2>
 
-          <div className="cards">
-            {gallery.map((item, idx) => (
-              <div key={idx} className="card">
-                <img src={item.img} alt={item.title} />
-                <p>{item.title}</p>
+          {
+            isLoadingGallery ? (
+              <h2>Loading</h2>
+            ) : (
+              <div className="cards">
+                {galleryInfo.map((item, idx) => (
+                  <div key={idx} className="card">
+                    <img src={item.image} alt={item.desc} />
+                    <p>{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )
+          }
+
         </div>
         <Footer />
       </div>

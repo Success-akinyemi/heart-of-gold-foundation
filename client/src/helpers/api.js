@@ -158,7 +158,6 @@ export async function subscribe({ email }){
     }
 }
 
-
 /** New Campaign */
 export async function newCampaign({ id, title, message, image }){
     const token = await localStorage.getItem('authToken')
@@ -208,6 +207,26 @@ export async function deleteCampaign({userId, id}){
             toast.success(res)
             window.location.href = '/campaign'
             return res
+        }
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        toast.error(errorMsg)
+        console.log(errorMsg)
+        return errorMsg
+    }
+}
+
+/**New Gallery */
+export async function newGallery({ userId, ImageUrl, desc }){
+    try {
+        console.log('Gallery Data', userId, ImageUrl, desc)
+        const token = localStorage.getItem('authToken')
+        const res = await axios.post('/api/newGallery', { userId, ImageUrl, desc }, {headers: {Authorization: `Bearer ${token}`}})
+        
+        if(res.data.success){
+            const response = res.data.data
+            toast.success(response)
+            return response
         }
     } catch (error) {
         const errorMsg = error.response.data.data

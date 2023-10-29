@@ -65,3 +65,30 @@ export function useFetchCampaign(query){
 
     return campaignData
 }
+
+/**Get Gallery */
+export function useFetchGallery(query){
+    const [galleryData, setGalleryData] = useState({ isLoadingGallery: true, apiGalleryData: null, GalleryDataStatus: null, GalleryServerError: null})
+
+    useEffect(() => {
+        const fetchGalleryData =  async () => {
+            try {
+                console.log('query', query)
+
+                const { data, status} = !query ? await axios.get(`/api/getGallery`) : await axios.get(`/api/getCampaign/${query}`)
+                console.log('Data from Gallery Hooks>>>', data)
+
+                if(status === 200){
+                    setGalleryData({ isLoadingGallery: false, apiGalleryData: data, GalleryDataStatus: status, GalleryServerError: null})
+                } else{
+                    setGalleryData({ isLoadingGallery: false, apiGalleryData: null, GalleryDataStatus: status, GalleryServerError: null})
+                }
+            } catch (error) {
+                setGalleryData({ isLoadingGallery: false, apiGalleryData: null, GalleryDataStatus: null, GalleryServerError: error})
+            }
+        };
+        fetchGalleryData()
+    }, [query])
+
+    return galleryData
+}
