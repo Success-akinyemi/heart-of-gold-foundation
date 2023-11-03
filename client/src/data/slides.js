@@ -5,7 +5,7 @@ import ImageThree from '../assets/Img2.png'
 export const sliderData = [
     {
         _id: 1,
-        text: 'We give to reduce the poverty among widows in our society',
+        text: 'We Thrive to reduce the poverty among widows in our society',
         image: ImageOne
     },
 
