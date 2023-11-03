@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import './Slides.css'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 function Slides({ data }) {
     const [current, setCurrent] = useState(0)
@@ -8,9 +10,14 @@ function Slides({ data }) {
     const timeout = useRef(null)
 
     useEffect(() => {
+        Aos.init({ duration: 2000 })
+    }, [])
+    
+    useEffect(() => {
         const nextSlide = () => {
             setCurrent(current => (current === length - 1 ? 0 : current + 1))
         }
+
 
         timeout.current = setTimeout(nextSlide, 3000)
 
@@ -24,11 +31,11 @@ function Slides({ data }) {
   return (
     <div className='padding slides'>
         <div className="container">
-            <div className="top">
+            <div data-aos='fade-down' className="top">
                 Heart Of Gold Foundation Programmes
             </div>
 
-            <div className="bottom">
+            <div data-aos='fade-up' className="bottom">
                 <div className="slide">
                     {
                         data.map((item, idx) => {
@@ -49,7 +56,7 @@ function Slides({ data }) {
                 </div>
 
             </div>
-            <div className="btn">
+            <div data-aos='zoom-out' className="btn">
                     <span><Link to='/gallery' className='link'>More Programes</Link></span>
             </div>
         </div>

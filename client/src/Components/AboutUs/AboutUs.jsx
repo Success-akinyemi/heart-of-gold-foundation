@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom'
 import './AboutUs.css'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 function AboutUs({ image, text, subTitle, title}) {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
     <div className='padding aboutUs'>
-      <div className="content">
+      <div data-aos='fade-up' className="content">
         <h3 className='title'>{title}</h3>
         <div className="card">
           <div className="cardInfo">

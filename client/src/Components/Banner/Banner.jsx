@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom'
 import './Banner.css'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 function Banner() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
-    <div className='banner'>
+    <div data-aos='zoom-in'  className='banner'>
         <div className="overlay"></div>
         <div className="content">
-            <div className="left">
+            <div data-aos='fade-right' className="left">
                 <p>We are here to improve lives</p>
                 <h2>
                 Some Widows and Vulnerable in our Society Need Help And We Give It!
@@ -14,7 +21,7 @@ function Banner() {
                 <span>We support many people in communities</span>
             </div>
 
-            <div className="right">
+            <div data-aos='fade-down' className="right">
               <div className="btn">
                 <span><Link to='/events' className='link'>Explore More</Link></span>
               </div>

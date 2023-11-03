@@ -2,12 +2,19 @@ import { Link } from 'react-router-dom'
 import { contact } from '../../data/contact'
 import './Ngo.css'
 import PhoneIcon  from '@mui/icons-material/LocalPhone'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 function Ngo() {
+    useEffect(() => {
+        Aos.init({ duration: 2000 })
+    }, [])
+    
     const { phoneNumber } = contact
   return (
     <div className='ngo'>
-        <div className="padding content">
+        <div data-aos='zoom-in'  className="padding content">
             <p className='intro'>We're non-profit organisation</p>
 
             <h1>Join Us Build a Happy Society</h1>
