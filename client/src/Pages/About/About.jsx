@@ -68,7 +68,7 @@ function About(){
 
                         <div className="inputField">
                             <label htmlFor="">Phone Number:</label>
-                            <input type="number" id='number' name='user_number' />
+                            <input type="number" id='number' name='user_phone' />
                         </div>
 
                         <div className="inputField">

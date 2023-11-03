@@ -82,6 +82,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    background-position: center;
 }
 
 .slides .container .btn{
