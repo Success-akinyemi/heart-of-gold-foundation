@@ -9,17 +9,21 @@ import LanguageIcon from '@mui/icons-material/Language';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import { contact } from '../../data/contact';
 import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 function About(){
     const [ isLoading, setIsLoading ] = useState(false)
     const form = useRef();
+    console.log(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, import.meta.env.VITE_USER_ID)
 
     const sendEmail = (e) => {
       e.preventDefault();
     
       try {
             setIsLoading(true)
-          emailjs.sendForm('service_x6n2mfu', 'template_3ki2n7b', form.current, 'usy4tHyf_VtLx8ahc')
+            console.log('STARDTED')
+            emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, import.meta.env.VITE_USER_ID)
             .then((result) => {
                 console.log(result.text);
                 e.target.reset()
@@ -29,15 +33,16 @@ function About(){
                 toast.error('Unable to send Messages')
             });
       } catch (error) {
-        
+        console.log('ERROR', error)
       } finally {
         setIsLoading(false)
       }
     };
 
-    const { phoneNumber, smsNumber } = contact
+    const { phoneNumber, smsNumber, email } = contact
     return (
         <div className="about">
+            <Toaster position='top-center'></Toaster>
             <Navbar />
             <div className="padding container">
                 <h2>Who Are We?</h2>
@@ -46,7 +51,7 @@ function About(){
                 </p>
 
                 <div className="formContact">
-                    <form>
+                    <form ref={form} onSubmit={sendEmail}>
                         <div className="formTitle">
                             <h3>Message Us</h3>
                         </div>
@@ -96,6 +101,15 @@ function About(){
                                 <span className="box-2">{smsNumber}</span>
                             </a>
                         </div>
+
+                        <div className="card card-2">
+                            <h4>Email Us</h4>
+                            <a href={`mailto:${email}`} className='link'>
+                                <span className="box-1"><EmailIcon className='icon' /></span>
+                                <span className="box-2">{email}</span>
+                            </a>
+                        </div>
+
                         <div className="card card-3">
                             <h4><PlaceIcon className='icon'/> Office Address</h4>
                             

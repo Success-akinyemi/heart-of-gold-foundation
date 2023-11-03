@@ -24,11 +24,11 @@ function NewGallery({userId}) {
 
         const formData = new FormData();
         //formData.append('key', apiKey);
-        formData.append('upload_preset', 'wtqdxw06');
+        formData.append('upload_preset', `${import.meta.env.VITE_CLOUDINARY_PRESET}`);
         formData.append('file', image);
 
         try {
-            const response = await fetch(`https://api.cloudinary.com/v1_1/dsjwuwjm1/image/upload` ,{
+            const response = await fetch(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/image/upload` ,{
                 method: 'POST',
                 body: formData,
             })

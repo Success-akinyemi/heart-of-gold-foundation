@@ -20,6 +20,17 @@
     font-weight: 600;
 }
 
+.navbar .logo .logoLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.navbar .logo .logoLink .logoImg{
+    width: 40px;
+}
+
 .navbar .menu{
     display: flex;
     justify-content: space-between;
@@ -160,6 +171,10 @@
 }
 
 @media screen and (max-width: 450px) {
+    .navbar .logo .logoLink .logoImg{
+        width: 30px;
+    }
+    
     .navbar .logo{
         font-size: 22px;
     }
