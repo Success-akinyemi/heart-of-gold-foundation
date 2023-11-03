@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Banner.css'
 
 function Banner() {
@@ -15,7 +16,7 @@ function Banner() {
 
             <div className="right">
               <div className="btn">
-                <span>Explore More</span>
+                <span><Link to='/events' className='link'>Explore More</Link></span>
               </div>
             </div>
         </div>

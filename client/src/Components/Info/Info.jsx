@@ -17,7 +17,7 @@ function Info({ image, text, title, subTitle}) {
                 </div>
             </div>
             <div className="btn">
-                <span><Link className='link' to='/donate'>Donate To Support Us</Link></span>
+                <span><Link className='link' to='/events'>Learn More about HOGF</Link></span>
             </div>
         </div>
     </div>

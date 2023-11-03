@@ -1,10 +1,12 @@
 import ImgOne from '../assets/w.jpg'
+import ImgTwo from '../assets/bg1.png'
+
 
 export const infoDataOne = {
     title: 'Join Hands and make Our Society a Better Place',
     subTitle: ' Supporting the Underprivileged',
     text: 'In a world that often leaves widows and the less privileged behind, we are on a mission to extend a helping hand and make a positive change in our society. Our focus is on empowering widows, as they are among the most vulnerable members of our community. Through dedicated support and opportunities, we aim to provide them with the tools and resources they need to build a brighter and more independent future.',
-    image: ImgOne
+    image: ImgTwo
 }
 
 export const aboutUsData = {

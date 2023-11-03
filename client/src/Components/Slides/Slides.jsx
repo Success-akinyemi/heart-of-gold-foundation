@@ -25,7 +25,7 @@ function Slides({ data }) {
     <div className='padding slides'>
         <div className="container">
             <div className="top">
-                Heart Of Gold Foundation Causes
+                Heart Of Gold Foundation Programmes
             </div>
 
             <div className="bottom">
@@ -50,7 +50,7 @@ function Slides({ data }) {
 
             </div>
             <div className="btn">
-                    <span><Link className='link'>More Causes</Link></span>
+                    <span><Link to='/gallery' className='link'>More Programes</Link></span>
             </div>
         </div>
     </div>

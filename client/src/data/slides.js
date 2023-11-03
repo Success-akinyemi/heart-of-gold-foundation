@@ -1,6 +1,6 @@
-import ImageOne from '../assets/a.jpg'
-import ImageTwo from '../assets/b.jpg'
-import ImageThree from '../assets/c.jpg'
+import ImageOne from '../assets/Img4.png'
+import ImageTwo from '../assets/Img3.png'
+import ImageThree from '../assets/Img2.png'
 
 export const sliderData = [
     {

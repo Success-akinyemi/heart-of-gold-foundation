@@ -75,7 +75,7 @@ function Gallery(){
               <h2>Loading</h2>
             ) : (
               <div className="cards">
-                {galleryInfo.map((item, idx) => (
+                {galleryInfo?.map((item, idx) => (
                   <div key={idx} className="card">
                     <img src={item.image} alt={item.desc} />
                     <p>{item.desc}</p>

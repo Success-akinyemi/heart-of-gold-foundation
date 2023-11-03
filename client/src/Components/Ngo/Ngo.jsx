@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { contact } from '../../data/contact'
 import './Ngo.css'
 import PhoneIcon  from '@mui/icons-material/LocalPhone'
@@ -20,7 +21,7 @@ function Ngo() {
             </p>
 
             <div className="btn">
-                <span>Support Us</span>
+                <span><Link to='/donate' className='link'>Support Us</Link></span>
             </div>
 
             <p className='footNote'>
