@@ -92,8 +92,8 @@
     border-radius: 20px;
     color: var(--color-2);
     font-weight: 600;
-    transition: all 0.3s ease;
 }
+
 
 .hero .content .outer .details .left .campaingnLink:hover{
     background: var(--bg-1);
@@ -103,7 +103,18 @@
 .hero .content .outer .details .left p{
     font-size: 20px;
     color: var(--bg-1);
+    opacity: 0;
+    animation: fadeUp 1.5s ease-in 1.5s forwards;
 }
+
+@keyframes fadeUp {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 
 .hero .content .outer .details .right{
