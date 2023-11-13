@@ -10,7 +10,7 @@ function Hero() {
                 <div className="padding details">
                     <div className="left">
                         <h1 className='fade-in'>
-                            Providing Help to Widow, Fatherless and Less Previlage in Our Society
+                            Providing Help to Widows, Fatherless and Less Previlage in Our Society
                         </h1>
 
                         <p>
