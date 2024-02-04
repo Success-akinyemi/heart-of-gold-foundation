@@ -47,7 +47,28 @@ function About(){
             <div className="padding container">
                 <h2>Who Are We?</h2>
                 <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem ea, blanditiis ad esse corrupti totam harum ipsam praesentium quis? Cupiditate iste cumque, consectetur itaque sint voluptatibus dolorem mollitia delectus, vitae beatae harum nesciunt adipisci similique necessitatibus nihil velit ut id nemo repellendus libero. Corrupti nostrum debitis fuga hic. Esse quibusdam laboriosam quis porro. Voluptate vitae ab quas in ipsa, nemo laboriosam laborum maxime error excepturi, cumque nobis enim sit est autem nesciunt at deleniti veritatis accusamus perspiciatis! Deserunt itaque, porro voluptatibus delectus nisi saepe, similique totam id tempora sunt magni cum accusantium? Animi autem vitae, ipsa beatae perferendis repellendus recusandae veritatis enim odio consequatur, doloremque culpa nisi incidunt aperiam suscipit eius modi cumque expedita. Quibusdam, odio totam sed atque fuga incidunt qui voluptatem sit non aliquid nulla doloremque! Iste sit eaque dignissimos, cumque reprehenderit non explicabo quas adipisci quidem ipsam quae eos assumenda enim dolorem sunt earum. Ex, cum perspiciatis.
+                Welcome to Heart of Gold of Foundation, a compassionate community dedicated to empowering and supporting widows and women on their journey to resilience and independence. We believe in the strength and resilience of women, and our mission is to provide a nurturing environment where widows and women from all walks of life can find the support they need to rebuild and thrive.
+<br />
+<b>Our Commitment:</b>
+At Heart of Gold of Foundation, we understand the unique challenges that widows and women face in the aftermath of loss. We are committed to creating a space that goes beyond sympathy, offering tangible solutions and resources to empower them on their path to healing and self-sufficiency.
+
+<br />
+<b>Empowerment Through Skills:</b>
+One of our core focuses is to equip women with valuable skills that can enhance their professional and personal lives. Through skill-building workshops, training programs, and mentorship opportunities, we aim to foster a sense of independence and confidence, enabling them to navigate life's challenges with resilience.
+
+<br />
+<b>Financial Aid and Support:</b>
+Financial stability is a crucial aspect of empowerment. We provide financial aid programs, grants, and resources to help women regain control of their financial destinies. Our goal is to break down economic barriers, empowering them to create a secure and sustainable future for themselves and their families.
+
+<br />
+<b>Community and Connection:</b>
+Building a strong sense of community is at the heart of what we do. We encourage networking, mentorship, and the sharing of experiences among our members. Through our supportive community, women can find solace, encouragement, and valuable connections that contribute to their personal growth.
+
+<br />
+<b>Holistic Well-being:</b>
+We believe in addressing the holistic well-being of widows and women. Our initiatives encompass mental health support, wellness programs, and resources to promote emotional healing. By fostering a sense of self-love and care, we empower women to embrace their journey towards a fulfilling and purposeful life.
+
+Join us at Heart of Gold of Foundation as we embark on a transformative journey together. Let's inspire, uplift, and empower each other to turn the page to a new chapter
                 </p>
 
                 <div className="formContact">

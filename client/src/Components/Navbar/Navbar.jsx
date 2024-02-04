@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import menuData from '../../data/menu'
 import './Navbar.css'
 import MenuIcon from '@mui/icons-material/Menu';
@@ -11,9 +11,15 @@ function Navbar() {
     const { apiData } = useFetch()
     const userId = apiData?.data._id
     const [ menu, setMenu ] = useState(false)
+    const navigate = useNavigate()
     
     const toggle = () => {
         setMenu(!menu)
+    }
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken')
+        navigate('/')
     }
 
     return (
@@ -36,6 +42,11 @@ function Navbar() {
                             {item.title}
                         </Link>
                     ))
+                }
+                {
+                    apiData && (
+                        <span onClick={handleLogout} className="links">Logout</span>
+                    )
                 }
             </div>
 

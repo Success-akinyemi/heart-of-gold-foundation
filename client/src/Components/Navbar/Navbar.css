@@ -44,6 +44,10 @@
     font-size: 17px;
 }
 
+.navbar .menu .item .links{
+    cursor: pointer;
+}
+
 .navbar .menu .n-donate{
     margin-left: 100px;
 }
