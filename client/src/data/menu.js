@@ -14,8 +14,4 @@ if (user) {
     menuData.push({ title: 'My Profile', link: '/profile' });
 }
 
-if (user) {
-    menuData.filter({title: 'Events/News', link: '/events'});
-}
-
 export default menuData
