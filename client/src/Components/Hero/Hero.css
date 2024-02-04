@@ -102,7 +102,7 @@
 
 .hero .content .outer .details .left p{
     font-size: 20px;
-    color: var(--bg-1);
+    color: var(--bg-3);
     opacity: 0;
     animation: fadeUp 1.5s ease-in 1.5s forwards;
 }

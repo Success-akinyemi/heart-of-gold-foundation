@@ -1,5 +1,5 @@
-import ImgOne from '../assets/w.jpg'
-import ImgTwo from '../assets/bg1.png'
+import ImgOne from '../assets/women.png'
+import ImgTwo from '../assets/women.png'
 
 
 export const infoDataOne = {
