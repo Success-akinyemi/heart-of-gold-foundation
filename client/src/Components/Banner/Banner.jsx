@@ -3,6 +3,7 @@ import './Banner.css'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from 'react'
+import BannerImg from '../../assets/banner.jpeg'
 
 function Banner() {
   useEffect(() => {
@@ -22,8 +23,8 @@ function Banner() {
             </div>
 
             <div data-aos='fade-down' className="right">
-              <div className="btn">
-                <span><Link to='/events' className='link'>Explore More</Link></span>
+              <div className="imgCard">
+                <img src={BannerImg} alt='banner' />
               </div>
             </div>
         </div>

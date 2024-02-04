@@ -3,7 +3,7 @@
     height: 600px;
     margin-bottom: 60px;
     position: relative;
-    background: url(../../assets/b.jpg);
+    background: url(../../assets/banner.jpeg);
     background-position: center;
     background-size: cover;
     object-fit: cover;
@@ -15,7 +15,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: var(--bg-2);
+    background: var(--pink-1);
     opacity: 0.685;
     z-index: 1;
 }
@@ -55,6 +55,7 @@
 .banner .content .right{
     flex: 1;
     display: flex;
+    flex-direction: column;
 }
 
 .banner .content .right .btn{
@@ -78,6 +79,17 @@
 .banner .content .right .btn span:hover{
     background: white;
     color: var(--bg-2);
+}
+
+.banner .content .right .imgCard{
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+}
+
+.banner .content .right .imgCard img{
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 768px) {

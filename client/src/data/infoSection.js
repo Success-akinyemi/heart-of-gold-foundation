@@ -12,6 +12,6 @@ export const infoDataOne = {
 export const aboutUsData = {
     title: 'About Us',
     subTitle: 'Who we are and what we do',
-    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit necessitatibus ducimus rerum natus omnis quia soluta provident exercitationem qui saepe vel beatae debitis blanditiis distinctio voluptatibus tempora reprehenderit recusandae dolore, voluptatum, labore id. Fugiat asperiores vel non cumque nisi quis.',
+    text: "Welcome to Heart of Gold Foundation, a dedicated space committed to empowering and supporting widows and women on their journey to self-reliance and empowerment. Our mission is to provide holistic assistance, offering a range of programs and resources to enhance their skills, provide financial aid, and foster overall empowerment.",
     image: ImgOne
 }

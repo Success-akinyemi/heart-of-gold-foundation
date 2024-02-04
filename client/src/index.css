@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@300;400;500;700;900&display=swap');
 
 :root{
-  --bg-1: yellow;
+  --bg-1: pink;
   --bg-2: blue;
   --bg-3: rgb(255, 98, 0);
   --bg-4: rgb(196, 197, 197);
@@ -9,6 +9,8 @@
   --color-1: #000;
   --color-2: #fff;
   --color-3: yellow;
+
+  --pink-1: rgb(247, 122, 143);
 
   --opa-1: rgba(255, 255, 0, 0.596);
 }
