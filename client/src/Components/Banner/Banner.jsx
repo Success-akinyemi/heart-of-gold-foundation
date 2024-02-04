@@ -15,7 +15,7 @@ function Banner() {
         <div className="overlay"></div>
         <div className="content">
             <div data-aos='fade-right' className="left">
-                <p>We are here to improve lives</p>
+                <p>We are here to improve lives,</p>
                 <h2>
                 Some Widows and Vulnerable in our Society Need Help And We Give It!
                 </h2>
