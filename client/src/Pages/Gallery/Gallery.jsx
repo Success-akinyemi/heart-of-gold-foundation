@@ -5,6 +5,8 @@ import { gallery } from '../../data/gallery'
 import './Gallery.css'
 import NewGallery from '../../Components/NewGallery/NewGallery'
 import { useFetch, useFetchGallery } from '../../hooks/fetch.hooks'
+import DeleteIcon from '@mui/icons-material/Delete';
+import { deleteImg } from '../../helpers/api'
 
 function Gallery(){
     const [selectedCard, setSelectedCard] = useState(null)
@@ -45,6 +47,16 @@ function Gallery(){
         setSelectedCard(null);
       };
 
+      const handleDelete = async (id) => {
+        const comfirm = window.confirm('Are you sure you want to delete this Image?')
+        if(comfirm){
+          try {
+            const res = await deleteImg({id, userId})
+          } catch (error) {
+            
+          }
+        }
+      }
     return (
       <div className="gallery">
         {selectedCard && (
@@ -78,7 +90,10 @@ function Gallery(){
                 {galleryInfo?.map((item, idx) => (
                   <div key={idx} className="card">
                     <img src={item.image} alt={item.desc} />
-                    <p>{item.desc}</p>
+                        <p>{item.desc}</p>
+                      <div className="delete" onClick={handleDelete(item._id)}>
+                        <DeleteIcon className='delIcon' />
+                    </div>
                   </div>
                 ))}
               </div>

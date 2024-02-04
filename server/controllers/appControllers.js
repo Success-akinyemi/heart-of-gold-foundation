@@ -311,3 +311,33 @@ export async function getGallery(req, res){
     res.status(500).json({ success: false, data: 'Could not delete Campaign' })
   }
 }
+
+export async function deleteImg(req, res){
+  try {
+    const {userId, id} = req.query
+    console.log(userId, id)
+
+    const isAdmin = await UserModel.findById({ _id: userId })
+    const admin = isAdmin.isAdmin
+    console.log(admin)
+    if(!isAdmin.isAdmin){
+      return res.status(404).json({ success: false, data: 'NOT ALLOWED'})
+    }
+
+    const deleteImg = await GalleryModel.findByIdAndDelete(id)
+
+    if(!deleteImg){
+      return res.status(400).json({ success: false, data: 'Campaign not Found'})
+    }
+
+    if(deleteImg){
+      console.log('DELETD')
+      return res.status(200).json({ success: true, data: 'Campaign Deleted'})
+    } else{
+      return res.status(400).json({success: false, data: 'Failed to delete Campaign'})
+    }
+  } catch (error) {
+    console.log('ERROR DELETING CAMPAIGN', error)
+    res.status(500).json({ success: false, data: 'Could not delete Campaign' })
+  }
+}

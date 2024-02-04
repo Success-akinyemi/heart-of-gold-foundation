@@ -21,4 +21,6 @@ privateRouter.route('/editCampaign').put(Protect, controllers.editCampaign)
 
 //DELETE
 privateRouter.route('/deleteCampaign').delete(Protect, controllers.deleteCampaign)
+privateRouter.route('/deleteImg').delete(Protect, controllers.deleteImg)
+
 export default privateRouter

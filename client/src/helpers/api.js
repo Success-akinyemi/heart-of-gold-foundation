@@ -219,7 +219,7 @@ export async function deleteCampaign({userId, id}){
 /**New Gallery */
 export async function newGallery({ userId, ImageUrl, desc }){
     try {
-        console.log('Gallery Data', userId, ImageUrl, desc)
+        //console.log('Gallery Data', userId, ImageUrl, desc)
         const token = localStorage.getItem('authToken')
         const res = await axios.post('/api/newGallery', { userId, ImageUrl, desc }, {headers: {Authorization: `Bearer ${token}`}})
         
@@ -227,6 +227,27 @@ export async function newGallery({ userId, ImageUrl, desc }){
             const response = res.data.data
             toast.success(response)
             return response
+        }
+    } catch (error) {
+        const errorMsg = error.response.data.data
+        toast.error(errorMsg)
+        console.log(errorMsg)
+        return errorMsg
+    }
+}
+
+//Delete Image
+export async function deleteImg({id, userId}){
+    try {
+        const token = localStorage.getItem('authToken')
+        const response = await axios.delete('/api/deleteImg', { id, userId }, {headers: {Authorization: `Bearer ${token}`}})
+        console.log('response>>', response.data.success)
+        if(response.data.success === true){
+            const res = response.data.data
+            console.log(res)
+            toast.success(res)
+            window.location.href = '/campaign'
+            return res
         }
     } catch (error) {
         const errorMsg = error.response.data.data

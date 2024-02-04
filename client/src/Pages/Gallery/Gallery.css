@@ -96,6 +96,8 @@
 .gallery .container .cards .card{
     width: 400px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery .container .cards .card img{
@@ -107,8 +109,18 @@
     transform: scale(1.05);
 }
 
-.gallery .container .cards .card p{
+.gallery .container .cards .card .delete{
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.gallery .card .delIcon{
+    font-size: 30px;
+    color: var(--main);
     margin-top: 20px;
+}
+
+.gallery .container .cards .card p{
     font-weight: 600;
 }
 

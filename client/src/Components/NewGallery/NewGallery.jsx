@@ -55,7 +55,7 @@ function NewGallery({userId}) {
 
         if (response) {
           toast.success(response);
-          // Clear input fields upon success
+          // Clear input fields upon successs
           clearInputFields();
       }
       } catch (error) {
