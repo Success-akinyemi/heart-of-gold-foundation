@@ -79,12 +79,13 @@
 .ngo .content .call h3{
     font-size: 30px;
     margin-bottom: 30px;
+    color: var(--bg-3);
 }
 
 .ngo .content .call .phoneIcon{
     width: 100px;
     height: 100px;
-    background: var(--bg-2);
+    background: var(--bg-3);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -100,4 +101,5 @@
 .ngo .content .call .phoneText{
     font-size: 30px;
     font-weight: 600;
+    color: var(--bg-3);
 }

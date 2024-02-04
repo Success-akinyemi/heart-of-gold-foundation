@@ -5,8 +5,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import LogoImg from '../../assets/HOGF-Logo.png'
+import { useFetch } from '../../hooks/fetch.hooks';
 
 function Navbar() {
+    const { apiData } = useFetch()
+    const userId = apiData?.data._id
     const [ menu, setMenu ] = useState(false)
     
     const toggle = () => {

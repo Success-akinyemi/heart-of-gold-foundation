@@ -14,7 +14,7 @@ function Gallery(){
     const adminUser = apiData?.data.isAdmin
 
     const galleryInfo = apiGalleryData?.data
-    console.log('GALLERY', galleryInfo)
+    //console.log('GALLERY', galleryInfo)
 
     const renderPopupComponent = () => {
         switch(selectedCard) {

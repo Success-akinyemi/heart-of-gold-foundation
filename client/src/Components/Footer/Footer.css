@@ -41,7 +41,7 @@
 }
 
 .footer .content .left h2{
-    color: var(--bg-2);
+    color: var(--color-2);
 }
 
 .footer .content .left .item{
@@ -68,7 +68,7 @@
 }
 
 .footer .content .middle h2{
-    color: var(--bg-2);
+    color: var(--color-2);
 }
 
 .footer .content .middle .icons{
@@ -96,7 +96,7 @@
 }
 
 .footer .content .right h2{
-    color: var(--bg-2);
+    color: var(--color-2);
 }
 
 .footer .content .right p{
