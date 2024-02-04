@@ -5,6 +5,7 @@ import PhoneIcon  from '@mui/icons-material/LocalPhone'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from 'react'
+import BannerImg from '../../assets/hogfFlyer.png'
 
 function Ngo() {
     useEffect(() => {
@@ -15,6 +16,9 @@ function Ngo() {
   return (
     <div className='ngo'>
         <div data-aos='zoom-in'  className="padding content">
+            {
+                /**
+                 * 
             <p className='intro'>We're non-profit organisation</p>
 
             <h1>Join Us Build a Happy Society</h1>
@@ -34,6 +38,11 @@ function Ngo() {
             <p className='footNote'>
                 We Touch Many Lives
             </p>
+                 */
+            }
+            <div className="bannerImg">
+                <img src={BannerImg} alt='banner' />
+            </div>
 
             <div className="call">
                 <h3>Call to Support us</h3>

@@ -12,7 +12,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: var(--bg-2);
+}
+
+.ngo .content .bannerImg{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.ngo .content .bannerImg img{
+    width: 60%;
 }
 
 .ngo .content .intro{
