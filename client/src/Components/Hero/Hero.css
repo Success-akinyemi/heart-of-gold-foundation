@@ -124,7 +124,7 @@
 }
 
 .hero .content .outer .details .right .logoImage{
-    width: 50%;
+    width: 90%;
 }
 
 @media screen and (max-width: 768px) {
@@ -140,6 +140,16 @@
     .hero .left p{
         margin-top: 20px;
     }
+
+    .hero .content .outer .details .right .logoImage{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero .content .outer .details .left h1{
+        font-size: 40px;
+    }    
 }
 
 @media screen and (max-width: 450px) {

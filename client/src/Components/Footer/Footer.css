@@ -79,13 +79,13 @@
 }
 
 .footer .content .middle .icons .icon{
-    color: var(--color-2);
+    color: var(--bg-3);
     font-size: 40px;
     transition: 0.3s ease-in;
 }
 
 .footer .content .middle .icons .icon:hover{
-    color: var(--bg-2);
+    color: var(--bg-3);
 }
 
 

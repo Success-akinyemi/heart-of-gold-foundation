@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Hero.css'
 import LogoImg from '../../assets/HOGF -Logo-1.png'
+import LogoImgTwo from '../../assets/HOGF-Logo2.png'
 
 function Hero() {
   return (
@@ -25,7 +26,7 @@ function Hero() {
                     </div>
 
                     <div className="right">
-                        <img src={LogoImg} className='logoImage' alt='heart of gold' />
+                        <img src={LogoImgTwo} className='logoImage' alt='heart of gold' />
                     </div>
                 </div>
             </div>

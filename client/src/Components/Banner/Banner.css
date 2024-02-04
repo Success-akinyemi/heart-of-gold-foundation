@@ -93,6 +93,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .banner{
+        height: auto;
+    }
+    
     .banner .content{
         flex-direction: column;
     }
@@ -100,6 +104,13 @@
     .banner .content .right .btn{
         margin-top: 60px;
         margin-left: 0;
+    }
+
+    .banner .content .right .imgCard{
+        width: 80%;
+        height: 100%;
+        margin-left: 0;
+        margin-top: 40px;
     }
 }
 

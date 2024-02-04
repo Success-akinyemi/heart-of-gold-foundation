@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import LogoImg from '../../assets/HOGF-Logo.png'
+import LogoImgTwo from '../../assets/HOGF-Logo2.png'
 import { useFetch } from '../../hooks/fetch.hooks';
 
 function Navbar() {
@@ -26,7 +27,7 @@ function Navbar() {
     <div className='padding navbar' >
         <div className="logo">
             <Link className='link logoLink' to='/'>
-                <img className='logoImg' src={LogoImg} alt='Logo' />
+                <img className='logoImg' src={LogoImgTwo} alt='Logo' />
                 Heart of Gold Foundation
             </Link>
         </div>

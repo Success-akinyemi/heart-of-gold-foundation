@@ -12,7 +12,7 @@ function Ngo() {
         Aos.init({ duration: 2000 })
     }, [])
     
-    const { phoneNumber } = contact
+    const { phoneNumber, phoneNumber2 } = contact
   return (
     <div className='ngo'>
         <div data-aos='zoom-in'  className="padding content">
@@ -50,6 +50,13 @@ function Ngo() {
                 <a href={`tel:+${phoneNumber}`} className='link phoneIcon'><PhoneIcon className='icon' /></a>
                 
                 <a href={`tel:+${phoneNumber}`} className='link phoneText'>{`${phoneNumber}`}</a>
+            </div>
+
+            <div className="call">
+
+                <a href={`tel:+${phoneNumber2}`} className='link phoneIcon'><PhoneIcon className='icon' /></a>
+                
+                <a href={`tel:+${phoneNumber2}`} className='link phoneText'>{`${phoneNumber}`}</a>
             </div>
         </div>
     </div>
