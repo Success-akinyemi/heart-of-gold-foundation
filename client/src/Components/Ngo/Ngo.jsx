@@ -56,7 +56,7 @@ function Ngo() {
 
                 <a href={`tel:+${phoneNumber2}`} className='link phoneIcon'><PhoneIcon className='icon' /></a>
                 
-                <a href={`tel:+${phoneNumber2}`} className='link phoneText'>{`${phoneNumber}`}</a>
+                <a href={`tel:+${phoneNumber2}`} className='link phoneText'>{`${phoneNumber2}`}</a>
             </div>
         </div>
     </div>
