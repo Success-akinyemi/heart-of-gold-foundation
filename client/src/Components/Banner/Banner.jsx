@@ -17,7 +17,7 @@ function Banner() {
             <div data-aos='fade-right' className="left">
                 <p>We are here to improve lives,</p>
                 <h2>
-                  Some Widows and Vulnerable women in our Society Need Help And We Give It!
+                  Widows and Vulnerable women in our Society Need Help And We Give It!
                 </h2>
                 <span>We support many people in communities</span>
             </div>
