@@ -11,11 +11,11 @@ function Hero() {
                 <div className="padding details">
                     <div className="left">
                         <h1 className='fade-in'>
-                            Supporting widows and Less Previlage women in our Society
+                            Supporting widows and Less Privileged Women in our Society
                         </h1>
 
                         <p>
-                        we are dedicated to making a meaningful difference in our community. we strive to provide essential support and assistance to widows, fatherless children, and those less privileged in our society.
+                        we are dedicated to making a meaningful difference in our community. we strive to provide essential support and assistance to widows, and those less privileged women in our society.
                         </p>
 
                         <div className="campaingn">
