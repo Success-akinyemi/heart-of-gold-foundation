@@ -1,5 +1,8 @@
 import './Video.css'
-import VidOne from '../../assets/video/vid1.mp4'
+import VidOne from '../../assets/video/good.mp4'
+import VidTwo from '../../assets/video/video.mp4'
+
+
 
 function Video() {
   return (
