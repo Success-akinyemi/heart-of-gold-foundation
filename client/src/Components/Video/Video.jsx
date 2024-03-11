@@ -1,5 +1,5 @@
 import './Video.css'
-import VidOne from '../../assets/video/good.mp4'
+import VidOne from '../../assets/video/'
 import VidTwo from '../../assets/video/video.mp4'
 
 
